@@ -1,15 +1,27 @@
 package com.example.isthereseat;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_page);
+
+        ImageButton goStatus_btn = (ImageButton) findViewById(R.id.goStatus_btn);
+        goStatus_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), seatStatusPageManger.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    // 두근두근
 }

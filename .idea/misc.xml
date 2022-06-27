@@ -3,7 +3,20 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" project-jdk-name="14" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1295" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/fragment_soojung3_f_fragment.xml" value="0.3319746376811594" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/main_page.xml" value="0.25" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/seat_status_page_manger.xml" value="0.1" />
+        <entry key="..\:/2022-2/software-contest/Is-there-seat/app/src/main/res/layout/sub.xml" value="0.12817028985507245" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="true" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
