@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class soojung3F extends Fragment {
+public class sungshin3F extends Fragment {
 
     MainActivity mainActivity;
 
-    public soojung3F() {
+    public sungshin3F() {
 
     }
 
@@ -19,6 +19,6 @@ public class soojung3F extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_soojung3_f, container, false);
+        return inflater.inflate(R.layout.fragment_sungshin3_f, container, false);
     }
 }
