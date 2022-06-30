@@ -19,5 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".seatStatusPageManger"/>
+        <activity android:name=".choiceOptionActivity"/>
     </application>
 </manifest>
