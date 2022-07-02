@@ -77,6 +77,27 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="130dp"
+                android:layout_height="match_parent">
+                <!--색깔 안정해서 임의로 설정함 -->
+                <View
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/purple_500"
+                    android:layout_width="35dp"
+                    android:layout_height="25dp"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:layout_width="60dp"
+                    android:textColor="@color/black"
+                    android:layout_height="35dp"
+                    android:text="사용 불가"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
