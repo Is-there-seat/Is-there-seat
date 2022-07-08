@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="avgDecibel">시 평균 데시벨 : </string>
+</resources>
