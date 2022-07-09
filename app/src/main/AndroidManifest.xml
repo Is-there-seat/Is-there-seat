@@ -20,5 +20,8 @@
         </activity>
         <activity android:name=".seatStatusPageManger"/>
         <activity android:name=".choiceOptionActivity"/>
+        <activity android:name=".SearchActivity" android:exported="true">
+
+        </activity>
     </application>
 </manifest>
