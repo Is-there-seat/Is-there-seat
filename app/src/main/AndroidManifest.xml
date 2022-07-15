@@ -11,16 +11,16 @@
         android:theme="@style/Theme.IsThereSeat" >
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".SplashActivity"
-            android:exported="true">
+        <activity android:name=".SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".seatStatusPageManger"/>
-        <activity android:name=".choiceOptionActivity"/>
         <activity android:name=".SearchActivity" android:exported="true">
+
+        </activity>
+        <activity android:name=".SeatActivity" >
 
         </activity>
     </application>

@@ -249,7 +249,7 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("test", "마이크 유무 : " + applyed_mic + " 키보드 유무 : "+ applyed_keyboard);
                 Log.d("test", "마이크 상관없음 : " + applyed_mic_check + " 키보드 상관없음 : "+ applyed_keyboard_check);
 
-                Intent intent = new Intent(getApplicationContext(), seatStatusPageManger.class);
+                Intent intent = new Intent(getApplicationContext(), SeatActivity.class);
                 intent.putExtra("noise_level", applyed_noise);
                 intent.putExtra("mic_TF", applyed_mic);
                 intent.putExtra("mic_TF_check", applyed_mic_check);
@@ -290,5 +290,13 @@ public class SearchActivity extends AppCompatActivity {
                 applyed_mic = false;
             }
         });
+
+        findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

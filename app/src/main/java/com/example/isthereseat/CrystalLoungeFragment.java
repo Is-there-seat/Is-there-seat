@@ -1,17 +1,16 @@
 package com.example.isthereseat;
-
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,9 +19,9 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SujungFragment extends Fragment {
+public class CrystalLoungeFragment extends Fragment {
 
-    ArrayList<Double> decibels = new ArrayList<>(Arrays.asList(47.5, 47.2, 47.3, 47.6, 46.9, 46.6, 49.2, 44.7, 45.1, 44.8));
+    ArrayList<Double> decibels = new ArrayList<>(Arrays.asList(35.3, 35.0, 34.1, 35.2, 32.4, 31.9, 33.2, 34.2, 35.2, 33.7));
     double decibel;
     TextView time;
     TextView deci_view;
@@ -33,7 +32,7 @@ public class SujungFragment extends Fragment {
     private final Handler mHandler = new Handler();
 
 
-    private Runnable timeTaskThread = new Runnable() {
+    private final Runnable timeTaskThread = new Runnable() {
         @Override
         public void run() {
             SimpleDateFormat format = new SimpleDateFormat("kk");
@@ -73,7 +72,7 @@ public class SujungFragment extends Fragment {
 
     @Override
     public void onResume() {
-        TimerTask timerTask = new SujungFragment.timeTask();
+        TimerTask timerTask = new CrystalLoungeFragment.timeTask();
         mtimer.schedule(timerTask, 500, 3000);
         super.onResume();
     }
@@ -81,7 +80,7 @@ public class SujungFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_sujung, container, false);
+        ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_crystal_lounge, container, false);
 /*
         int noise_level = getArguments().getInt("noise_level");
         boolean micTF =  getArguments().getBoolean("mic_TF");
@@ -97,17 +96,20 @@ public class SujungFragment extends Fragment {
 */
         //좌석 id
         int ids[] = {
-                R.id.sujung_seat1_1, R.id.sujung_seat1_2,
-                R.id.sujung_seat2_1, R.id.sujung_seat2_2,
-                R.id.sujung_seat3_1, R.id.sujung_seat3_2,
-                R.id.sujung_seat4_1, R.id.sujung_seat4_2,
-                R.id.sujung_seat5_1, R.id.sujung_seat5_2,
-                R.id.sujung_seat6_1, R.id.sujung_seat6_2,
-                R.id.sujung_seat7_1, R.id.sujung_seat7_2,
-                R.id.sujung_seat8_1, R.id.sujung_seat8_2,
-                R.id.sujung_seat9_1, R.id.sujung_seat9_2,
-                R.id.sujung_seat10_1, R.id.sujung_seat10_2,
-                R.id.sujung_seat11_1, R.id.sujung_seat11_2
+                R.id.crystal_seat1_1, R.id.crystal_seat1_2, R.id.crystal_seat1_3, R.id.crystal_seat1_4, R.id.crystal_seat1_5,
+                R.id.crystal_seat2_1, R.id.crystal_seat2_2, R.id.crystal_seat2_3, R.id.crystal_seat2_4, R.id.crystal_seat2_5,
+                R.id.crystal_seat3_1, R.id.crystal_seat3_2, R.id.crystal_seat3_3, R.id.crystal_seat3_4, R.id.crystal_seat3_5,
+                R.id.crystal_seat4_1, R.id.crystal_seat4_2, R.id.crystal_seat4_3, R.id.crystal_seat4_4, R.id.crystal_seat4_5,
+                R.id.crystal_seat5_1, R.id.crystal_seat5_2, R.id.crystal_seat5_3, R.id.crystal_seat5_4, R.id.crystal_seat5_5,
+                R.id.crystal_seat6_1, R.id.crystal_seat6_2, R.id.crystal_seat6_3, R.id.crystal_seat6_4, R.id.crystal_seat6_5,
+                R.id.crystal_seat7_1, R.id.crystal_seat7_2, R.id.crystal_seat7_3, R.id.crystal_seat7_4, R.id.crystal_seat7_5,
+                R.id.crystal_seat8_1, R.id.crystal_seat8_2, R.id.crystal_seat8_3, R.id.crystal_seat8_4, R.id.crystal_seat8_5,
+                R.id.crystal_seat9_1, R.id.crystal_seat9_2, R.id.crystal_seat9_3, R.id.crystal_seat9_4, R.id.crystal_seat9_5,
+                R.id.crystal_seat10_1, R.id.crystal_seat10_2, R.id.crystal_seat10_3, R.id.crystal_seat10_4, R.id.crystal_seat10_5,
+                R.id.crystal_seat11_1, R.id.crystal_seat11_2, R.id.crystal_seat11_3, R.id.crystal_seat11_4, R.id.crystal_seat11_5,
+                R.id.crystal_seat12_1, R.id.crystal_seat12_2, R.id.crystal_seat12_3, R.id.crystal_seat12_4, R.id.crystal_seat12_5,
+                R.id.crystal_seat13_1, R.id.crystal_seat13_2, R.id.crystal_seat13_3, R.id.crystal_seat13_4, R.id.crystal_seat13_5,
+                R.id.crystal_seat14_5, R.id.crystal_seat15_5, R.id.crystal_seat16_5,
         };
 
         for(int i =0; i<seats.size(); i++) {
@@ -115,18 +117,18 @@ public class SujungFragment extends Fragment {
         }
 
         time = (TextView) v.findViewById(R.id.hour);
-        deci_view = (TextView) v.findViewById(R.id.decibel_in_sujung1F);
+        deci_view = (TextView) v.findViewById(R.id.decibel_in_crystalLounge);
 
         // 실시간 시간 출력
-        timeTask timeTask = new timeTask();
+        CrystalLoungeFragment.timeTask timeTask = new CrystalLoungeFragment.timeTask();
         mtimer = new Timer();
         mtimer.schedule(timeTask, 500, 1000);
         // ----------
         /*
         if ((noise_level != 2)) {*/
-            for(int i =0; i<seats.size(); i++) {
-                seats.get(i).setBackgroundColor(Color.parseColor("#929495"));
-            }
+        for(int i =0; i<seats.size(); i++) {
+            seats.get(i).setBackgroundColor(Color.parseColor("#929495"));
+        }
         //}
 
         return v;

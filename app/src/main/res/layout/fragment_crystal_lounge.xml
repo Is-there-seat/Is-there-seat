@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrystalLoungeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시 평균 데시벨 : " />
+
+            <TextView
+                android:id="@+id/decibel_in_crystalLounge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" db" />
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="702dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="80dp"
+                android:orientation="horizontal">
+
+
+                <!--                //left chairs of desk 1.1-->
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#997B60" />
+
+                <View
+                    android:id="@+id/crystal_seat1_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat2_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat3_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // right chairs of desk 1.1-->
+
+                <View
+                    android:id="@+id/crystal_seat1_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat2_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat3_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 1.2-->
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#997B60" />
+                <!--                //left chairs of desk 1.2-->
+
+                <View
+                    android:id="@+id/crystal_seat1_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat2_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // right chairs of desk 1.2-->
+
+                <View
+                    android:id="@+id/crystal_seat1_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat2_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 2.1-->
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="71dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#997B60" />
+
+                <!--                //left chairs of desk 2.1-->
+
+                <View
+                    android:id="@+id/crystal_seat4_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat5_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="190dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // right chairs of desk 2.1-->
+
+                <View
+                    android:id="@+id/crystal_seat4_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="155dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 2.2-->
+                <View
+                    android:id="@+id/crystal_seat5_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="95dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="190dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //left chairs of desk 2.2-->
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#997B60" />
+
+                <View
+                    android:id="@+id/crystal_seat3_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="135dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat4_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat5_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginTop="205dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // right chairs of desk 2.2-->
+                <View
+                    android:id="@+id/crystal_seat3_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="135dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat4_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat5_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="205dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+
+
+                <!--                //desk 1.3-->
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="640dp"
+                    android:layout_marginStart="385dp"
+                    android:layout_marginLeft="385dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#997B60" />
+
+                <!--                //chairs of desk 1.3-->
+                <View
+                    android:id="@+id/crystal_seat1_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat2_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat3_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat4_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat5_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat6_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="220dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat7_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="260dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat8_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat9_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat10_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="380dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat11_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="420dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat12_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="460dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat13_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat14_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="540dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat15_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="580dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat16_5"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="350dp"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="620dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 3.1-->
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 3.1-->
+                <View
+                    android:id="@+id/crystal_seat7_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat6_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="240dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+
+
+
+                <!--                //desk 4.1-->
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="370dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 4.1-->
+                <View
+                    android:id="@+id/crystal_seat8_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat9_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="400dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 5.1-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="470dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 5.1-->
+                <View
+                    android:id="@+id/crystal_seat10_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="440dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat11_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //desk 6.1-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="570dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 6.1-->
+
+                <View
+                    android:id="@+id/crystal_seat12_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="540dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat13_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="600dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // desk 3.2-->
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 3.2-->
+                <View
+                    android:id="@+id/crystal_seat6_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat7_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // desk 4.2-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="370dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 4.2-->
+                <View
+                    android:id="@+id/crystal_seat8_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat9_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="370dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // desk 5.2-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="410dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="440dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 5.2-->
+                <View
+                    android:id="@+id/crystal_seat10_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="410dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat11_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="440dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // desk 6.2-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="480dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 6.2-->
+                <View
+                    android:id="@+id/crystal_seat12_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="480dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                // desk 7.2-->
+                <View
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="510dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/img_round" />
+
+                <!--                //chair of desk 7.2-->
+                <View
+                    android:id="@+id/crystal_seat13_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="510dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+
+                <!--                // desk 3.3-->
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="335dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="280dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#997B60" />
+
+                <!--                //left chairs of desk 3.3-->
+                <View
+                    android:id="@+id/crystal_seat6_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat7_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat8_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="380dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat9_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="420dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat10_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="460dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat11_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat12_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="540dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+
+                <View
+                    android:id="@+id/crystal_seat13_3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="580dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <!--                //right chairs of desk 3.3-->
+                <View
+                    android:id="@+id/crystal_seat6_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat7_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="340dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat8_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="380dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat9_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="420dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat10_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="460dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat11_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+                <View
+                    android:id="@+id/crystal_seat12_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="540dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+
+                <View
+                    android:id="@+id/crystal_seat13_4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="580dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#0053B0" />
+
+            </FrameLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</FrameLayout>

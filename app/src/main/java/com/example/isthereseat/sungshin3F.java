@@ -37,7 +37,7 @@ public class sungshin3F extends Fragment {
             Date now = new Date();
             SimpleDateFormat format = new SimpleDateFormat("kk");
             String dateString = format.format(now);
-            time.setText(dateString  + "시 평균 데시벨 : " );
+            time.setText(dateString);
             int hour = Integer.parseInt(dateString);
             int index = hour - 9;
             if (index <= 0) {

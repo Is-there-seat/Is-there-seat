@@ -50,7 +50,7 @@
                 android:id="@+id/outOutLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:weightSum="1.8">
 
@@ -58,7 +58,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1.2"
-                    android:background="#9E9E9E"
                     android:gravity="center">
 
                     <FrameLayout
@@ -71,17 +70,19 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="top"
                             android:layout_marginBottom="50dp"
                             android:src="@drawable/ic_baseline_keyboard_double_arrow_up_24" />
 
-                        <ImageView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="50dp"
-                            android:src="@drawable/ic_baseline_keyboard_double_arrow_down_24" />
-
+                            android:layout_gravity="top"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="80dp"
+                            android:text="블루포트"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                     </FrameLayout>
 
@@ -95,13 +96,13 @@
                             android:layout_height="150dp"
                             android:layout_gravity="top"
                             android:layout_marginBottom="10dp"
-                            android:background="#B8B8B8" />
+                            android:background="#E1E1E1" />
 
                         <View
                             android:layout_width="100dp"
                             android:layout_height="150dp"
                             android:layout_gravity="bottom"
-                            android:background="#B8B8B8" />
+                            android:background="#E1E1E1" />
 
                     </FrameLayout>
 
@@ -111,7 +112,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
-                    android:background="#9E9E9E"
                     android:gravity="center">
 
                     <LinearLayout
@@ -281,10 +281,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
+                        android:background="#C1C1C1"
+                        android:orientation="vertical"
                         android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:background="#C3B6A5"
-                        android:orientation="vertical">
+                        android:paddingEnd="10dp">
 
 
                         <View
@@ -372,7 +372,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#C3B6A5"
+                        android:background="#C1C1C1"
                         android:orientation="vertical">
 
                         <View
@@ -399,12 +399,24 @@
                             android:layout_height="25dp"
                             android:background="@drawable/img_round" />
 
-                        <View
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="15dp"
-                            android:background="@color/white" />
+                            android:background="@color/white">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:text="출입문"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="10pt" />
+
+                        </LinearLayout>
 
 
                         <View
