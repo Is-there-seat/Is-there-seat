@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "91559763969",
+    "firebase_url": "https://isthereseat-ad7a5-default-rtdb.firebaseio.com",
+    "project_id": "isthereseat-ad7a5",
+    "storage_bucket": "isthereseat-ad7a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91559763969:android:8bb0b14af828a160546000",
+        "android_client_info": {
+          "package_name": "com.example.isthereseat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91559763969-l2k1svuu8l6tvhdear9tsgh3fo2e7gai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUSYDmR1HjUCkm6tLlGGs8KLqAZBbuoqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91559763969-l2k1svuu8l6tvhdear9tsgh3fo2e7gai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
