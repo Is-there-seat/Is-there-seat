@@ -41,12 +41,12 @@ public class sungshin3F extends Fragment {
             int hour = Integer.parseInt(dateString);
             int index = hour - 9;
             if (index <= 0) {
-                decibel = decibels[0]; // 9 시 이전의 경우
+                deci_view.setText("-"); // 9 시 이전의 경우
             } else if ((1<= index) && (index < 10)) {
                 decibel = decibels[index]; // 10시부터 18시 까지
+                deci_view.setText(Double.toString(decibel));
             } else
-                decibel = decibels[9]; // 18시 이후
-            deci_view.setText(Double.toString(decibel));
+                deci_view.setText("-");// 18시 이후
         }
     };
 

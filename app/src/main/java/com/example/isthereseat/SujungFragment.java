@@ -43,12 +43,13 @@ public class SujungFragment extends Fragment {
             int hour = Integer.parseInt(dateString);
             int index = hour - 9;
             if (index <= 0) {
-                decibel = decibels.get(0); // 9 시 이전의 경우
+                deci_view.setText("-"); // 9 시 이전의 경우
             } else if (index < 10) {
                 decibel = decibels.get(index); // 10시부터 18시 까지
+                deci_view.setText(Double.toString(decibel));
             } else
-                decibel = decibels.get(9); // 18시 이후
-            deci_view.setText(Double.toString(decibel));
+                deci_view.setText("-"); // 18시 이후
+
         }
     };
 

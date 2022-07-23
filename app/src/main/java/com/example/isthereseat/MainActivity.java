@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-// 의문점
-// 인원 어떻게 나눌것인지
-// 사용중 -> 사용 불가로 바꾸는게 어떤지 (거리두기, 조건에 따른 추천X등을 나누기 위해 사용불가라고 표현하는게 나을듯..?)
-//
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,11 +40,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
-
-
-
-
 }
