@@ -31,15 +31,15 @@
                 android:layout_gravity="start"
                 android:background="@color/white"
                 android:src="@drawable/ic_baseline_menu_24"
-                app:tint="#7C81E3" />
+                app:tint="#484B91" />
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/bmdohyeon"
-                android:text="성신관 3층"
+                android:fontFamily="@font/paybooc_extrabold"
+                android:text="수정관 1층"
                 android:textColor="@color/black"
                 android:textSize="10pt" />
 
@@ -50,7 +50,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/ic_baseline_search_24"
-                app:tint="#7C81E3" />
+                app:tint="#484B91" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -76,7 +76,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1.5dp"
+                android:layout_height="1.2dp"
                 android:background="#DFDFDF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -93,22 +93,22 @@
                     android:layout_height="match_parent">
 
                     <View
-                        android:layout_width="35dp"
+                        android:layout_width="33dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/seat_available" />
+                        android:background="@drawable/seat_available_round" />
 
                     <TextView
                         android:layout_width="60dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="7dp"
+                        android:fontFamily="@font/paybooc_medium"
                         android:gravity="center_vertical"
-                        android:text="사용 가능"
-                        android:textColor="@color/black" />
+                        android:text="사용 가능" />
 
                 </LinearLayout>
 
@@ -123,16 +123,16 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/seat_using" />
+                        android:background="@drawable/seat_using_round" />
 
                     <TextView
                         android:layout_width="60dp"
                         android:layout_height="33dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="7dp"
+                        android:fontFamily="@font/paybooc_medium"
                         android:gravity="center_vertical"
-                        android:text="사용 중"
-                        android:textColor="@color/black" />
+                        android:text="사용 중"/>
 
                 </LinearLayout>
 
@@ -147,7 +147,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/seat_unavailable" />
+                        android:background="@drawable/seat_unavailable_round" />
 
                     <TextView
                         android:layout_width="60dp"
@@ -155,8 +155,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="7dp"
                         android:gravity="center_vertical"
-                        android:text="사용 불가"
-                        android:textColor="@color/black" />
+                        android:fontFamily="@font/paybooc_medium"
+                        android:text="사용 불가" />
 
                 </LinearLayout>
 
@@ -179,7 +179,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/seat_recommend" />
+                        android:background="@drawable/seat_recommend_round" />
 
                     <TextView
                         android:layout_width="60dp"
@@ -187,8 +187,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="7dp"
                         android:gravity="center_vertical"
-                        android:text="추천 좌석"
-                        android:textColor="@color/black" />
+                        android:fontFamily="@font/paybooc_medium"
+                        android:text="추천 좌석"/>
 
                 </LinearLayout>
 
@@ -203,7 +203,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/seat_check" />
+                        android:background="@drawable/seat_check_round" />
 
                     <TextView
                         android:layout_width="264dp"
@@ -211,8 +211,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="7dp"
                         android:gravity="center_vertical"
-                        android:text="확인 중(해당 좌석은...)"
-                        android:textColor="@color/black" />
+                        android:fontFamily="@font/paybooc_medium"
+                        android:text="20분 대기 후 사용 가능" />
                 </LinearLayout>
 
             </LinearLayout>

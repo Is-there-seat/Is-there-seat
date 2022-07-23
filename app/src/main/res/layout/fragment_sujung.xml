@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,22 +17,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:fontFamily="@font/paybooc_medium"
             android:text="Time" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text="시 평균 데시벨 : " />
 
         <TextView
             android:id="@+id/decibel_in_sujung1F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text="Number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text=" db" />
 
     </LinearLayout>
@@ -72,20 +77,23 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="top"
                             android:layout_marginBottom="50dp"
-                            android:src="@drawable/ic_baseline_keyboard_double_arrow_up_24" />
+                            android:src="@drawable/ic_baseline_keyboard_double_arrow_up_24"
+                            app:tint="#595959" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="top"
-                            android:layout_marginStart="10dp"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="80dp"
+                            android:fontFamily="@font/scdream8"
                             android:text="블루포트"
-                            android:textColor="@color/black"
+                            android:textColor="#474747"
+                            android:textSize="10pt"
                             android:textStyle="bold" />
 
                     </FrameLayout>
-
+<!--
                     <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -104,7 +112,7 @@
                             android:layout_gravity="bottom"
                             android:background="#E1E1E1" />
 
-                    </FrameLayout>
+                    </FrameLayout> -->
 
                 </FrameLayout>
 
@@ -202,77 +210,77 @@
                             android:layout_height="25dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat2_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat3_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat4_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="60dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat5_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat6_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat7_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat8_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat9_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat10_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat11_1"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
 
                     </LinearLayout>
@@ -281,7 +289,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
-                        android:background="#C1C1C1"
+                        android:background="#D3D3D3"
                         android:orientation="vertical"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp">
@@ -293,28 +301,28 @@
                             android:layout_height="25dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat2_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat3_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat4_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="60dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
 
                         <View
@@ -322,49 +330,49 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat6_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat7_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat8_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="25dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat9_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat10_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
                         <View
                             android:id="@+id/sujung_seat11_2"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginBottom="10dp"
-                            android:background="#0053B0" />
+                            android:background="@drawable/seat_available" />
 
 
                     </LinearLayout>
@@ -372,7 +380,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#C1C1C1"
+                        android:background="#D3D3D3"
                         android:orientation="vertical">
 
                         <View
@@ -399,24 +407,24 @@
                             android:layout_height="25dp"
                             android:background="@drawable/img_round" />
 
-                        <LinearLayout
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginBottom="15dp"
+                            android:layout_height="34dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginBottom="13dp"
                             android:background="@color/white">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginStart="10dp"
                                 android:text="출입문"
+                                android:fontFamily="@font/paybooc_medium"
                                 android:textColor="@color/black"
                                 android:textStyle="bold"
-                                android:textSize="10pt" />
+                                android:textSize="8pt" />
 
-                        </LinearLayout>
+                        </FrameLayout>
 
 
                         <View

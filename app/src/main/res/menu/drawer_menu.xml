@@ -8,4 +8,5 @@
         android:icon="@drawable/ic_baseline_search_24"
         app:showAsAction="ifRoom"
         android:title = "좌석 추천"/>
+
 </menu>

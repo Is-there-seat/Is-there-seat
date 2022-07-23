@@ -21,22 +21,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:fontFamily="@font/paybooc_medium"
             android:text="Time" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text="시 평균 데시벨 : " />
 
         <TextView
             android:id="@+id/decibel_in_sungshin3F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text="Number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/paybooc_medium"
             android:text=" db" />
 
     </LinearLayout>
@@ -76,21 +80,21 @@
 
                 <View
                     android:id="@+id/seat1.1"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.2"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.3"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -98,7 +102,7 @@
 
                 <View
                     android:id="@+id/seat1.4"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -106,7 +110,7 @@
 
                 <View
                     android:id="@+id/seat1.5"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -114,7 +118,7 @@
 
                 <View
                     android:id="@+id/seat1.6"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -122,42 +126,42 @@
 
                 <View
                     android:id="@+id/seat1.7"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.8"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.9"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.10"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.11"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat1.12"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -210,21 +214,21 @@
                     android:layout_marginBottom="10dp"/>
                 <View
                     android:id="@+id/seat2.1"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.2"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.3"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -232,7 +236,7 @@
 
                 <View
                     android:id="@+id/seat2.4"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -240,7 +244,7 @@
 
                 <View
                     android:id="@+id/seat2.5"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -248,7 +252,7 @@
 
                 <View
                     android:id="@+id/seat2.6"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -256,14 +260,14 @@
 
                 <View
                     android:id="@+id/seat2.7"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.8"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -271,28 +275,28 @@
                 <View
                     android:id="@+id/seat2.9"
 
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.10"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.11"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat2.12"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -325,21 +329,21 @@
                     android:layout_marginBottom="10dp"/>
                 <View
                     android:id="@+id/seat3.1"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.2"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.3"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -347,7 +351,7 @@
 
                 <View
                     android:id="@+id/seat3.4"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -355,7 +359,7 @@
 
                 <View
                     android:id="@+id/seat3.5"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -363,7 +367,7 @@
 
                 <View
                     android:id="@+id/seat3.6"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -371,42 +375,42 @@
 
                 <View
                     android:id="@+id/seat3.7"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.8"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.9"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.10"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.11"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat3.12"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -463,18 +467,18 @@
                     android:layout_width="25dp"
                     android:layout_height="23dp"
                     android:layout_marginBottom="10dp"
-                    android:background="#0053B0" />
+                    android:background="@drawable/seat_available" />
 
                 <View
                     android:id="@+id/seat4.2"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.3"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -482,7 +486,7 @@
 
                 <View
                     android:id="@+id/seat4.4"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -490,7 +494,7 @@
 
                 <View
                     android:id="@+id/seat4.5"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -498,7 +502,7 @@
 
                 <View
                     android:id="@+id/seat4.6"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
@@ -506,42 +510,42 @@
 
                 <View
                     android:id="@+id/seat4.7"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.8"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.9"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.10"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.11"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>
 
                 <View
                     android:id="@+id/seat4.12"
-                    android:background="#0053B0"
+                    android:background="@drawable/seat_available"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginBottom="10dp"/>

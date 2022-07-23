@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.2851851851851852" />
+        <entry key="app/src/main/res/drawable-v24/seat_check_round.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/button_search.xml" value="0.207" />
         <entry key="app/src/main/res/drawable/button_search_selected.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/button_search_selector.xml" value="0.245" />
@@ -21,24 +22,30 @@
         <entry key="app/src/main/res/drawable/ic_table_square.xml" value="0.257" />
         <entry key="app/src/main/res/drawable/img_round.xml" value="0.224" />
         <entry key="app/src/main/res/drawable/layout_gradient.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/layout_square.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/layout_square_blue.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/line_bottom.xml" value="0.249" />
         <entry key="app/src/main/res/drawable/menu_48px.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/seat_available.xml" value="0.1665" />
+        <entry key="app/src/main/res/drawable/seat_available_round.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/seat_check.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/seat_recommend.xml" value="0.2415" />
+        <entry key="app/src/main/res/drawable/seat_recommend_round.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/seat_unavailable.xml" value="0.2415" />
+        <entry key="app/src/main/res/drawable/seat_unavailable_round.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/seat_using.xml" value="0.2415" />
+        <entry key="app/src/main/res/drawable/seat_using_round.xml" value="0.167" />
         <entry key="app/src/main/res/font/bmdohyeon.xml" value="1.6" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_search.xml" value="0.30224563459494924" />
-        <entry key="app/src/main/res/layout/activity_seat.xml" value="0.2971014492753623" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_seat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.26358695652173914" />
         <entry key="app/src/main/res/layout/activity_sungshin.xml" value="0.16261398176291794" />
         <entry key="app/src/main/res/layout/choice_option_page.xml" value="0.10092592592592593" />
-        <entry key="app/src/main/res/layout/drawer_header.xml" value="0.2971014492753623" />
+        <entry key="app/src/main/res/layout/drawer_header.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_crystal_lounge.xml" value="0.2971014492753623" />
-        <entry key="app/src/main/res/layout/fragment_sujung.xml" value="0.26358695652173914" />
-        <entry key="app/src/main/res/layout/fragment_sungshin3_f.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/fragment_sujung.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sungshin3_f.xml" value="0.335" />
         <entry key="app/src/main/res/layout/main_page.xml" value="0.16261398176291794" />
         <entry key="app/src/main/res/layout/seat_status_page_manger.xml" value="0.2971014492753623" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.334375" />

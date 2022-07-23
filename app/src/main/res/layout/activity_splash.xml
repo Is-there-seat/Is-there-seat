@@ -4,28 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AB00109C"
+    android:background="#3B4495"
     tools:context=".SplashActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="70dp"
         android:text="성신여자대학교 자리 찾기"
-        android:textColor="@color/white"
-        android:fontFamily="@font/bmdohyeon"
-        android:textStyle="italic"
+        android:textColor="#EFDBE1"
+        android:fontFamily="@font/paybooc_medium"
         android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="3dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/layout_square"
+        android:orientation="vertical">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/bmdohyeon"
-        android:textColor="@color/white"
-        android:text="자리 있어?"
+        android:fontFamily="@font/gmarketsansttfbold"
+        android:textColor="#EFDBE1"
+        android:text="자리있어?"
         android:textSize="55sp" />
 
+    </LinearLayout>
 
 </FrameLayout>

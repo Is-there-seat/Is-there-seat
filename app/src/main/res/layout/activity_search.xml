@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:src="@drawable/ic_baseline_close_24"
-            app:tint="#7C81E3" />
+            app:tint="#484B91" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/bmdohyeon"
+            android:fontFamily="@font/paybooc_extrabold"
             android:text="검색 조건"
             android:textColor="@color/black"
             android:textSize="10pt" />
@@ -44,6 +44,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="소음 정도"
+            android:fontFamily="@font/paybooc_medium"
             android:textColor="@color/black"
             android:textSize="7pt"
             android:textStyle="bold" />
@@ -106,6 +107,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="마이크 사용 여부"
+            android:fontFamily="@font/paybooc_medium"
             android:textColor="@color/black"
             android:textSize="7pt"
             android:textStyle="bold" />
@@ -168,6 +170,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="키보드 사용 여부"
+            android:fontFamily="@font/paybooc_medium"
             android:textColor="@color/black"
             android:textSize="7pt"
             android:textStyle="bold" />

@@ -1,11 +1,17 @@
 package com.example.isthereseat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 // 의문점
 // 인원 어떻게 나눌것인지
@@ -39,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+
 
 
 }
