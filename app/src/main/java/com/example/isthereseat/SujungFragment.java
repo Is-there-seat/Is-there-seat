@@ -13,10 +13,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -96,6 +106,9 @@ public class SujungFragment extends Fragment {
         Log.d("sujung_in1F_fragment","키보드 선택 : " + getArguments().getBoolean("keyboard_TF"));
         Log.d("sujung_in1F_fragment","키보드 선택 상관없음 : " + getArguments().getBoolean("keyboard_TF_check"));
 */
+
+
+
         //좌석 id
         int ids[] = {
                 R.id.sujung_seat1_1, R.id.sujung_seat1_2,
@@ -110,6 +123,58 @@ public class SujungFragment extends Fragment {
                 R.id.sujung_seat10_1, R.id.sujung_seat10_2,
                 R.id.sujung_seat11_1, R.id.sujung_seat11_2
         };
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("sujung");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+                Log.d("readData_in_sujung", "Value is: " + map);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("readData_in_sujung", "Failed to read value.", error.toException());
+            }
+        });
+
+        myRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.d("MainActivity", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue()); }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Log.d("readData_in_sujung", "ChildEventListener - onChildChanged : " + dataSnapshot.getKey() + " : " + dataSnapshot.getValue());
+                String key = dataSnapshot.getKey();
+                int big = Integer.parseInt(key.substring(0,2));
+                int small = Integer.parseInt(key.substring(2));
+                String packageName = getContext().getPackageName();
+
+                // id값 만들기
+                int resId = getResources().getIdentifier("sujung_seat" + big + "_" + small, "id", packageName);
+                v.findViewById(resId).setBackgroundColor(Color.parseColor("#a4d9f5"));
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.d("MainActivity", "ChildEventListener - onChildRemoved : " + dataSnapshot.getKey());}
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                Log.d("MainActivity", "ChildEventListener - onChildMoved" + s);            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("MainActivity", "ChildEventListener - onCancelled" + databaseError.getMessage());
+            }
+        });
+
+
 
         for(int i =0; i<seats.size(); i++) {
             seats.set(i, (View) v.findViewById(ids[i]));

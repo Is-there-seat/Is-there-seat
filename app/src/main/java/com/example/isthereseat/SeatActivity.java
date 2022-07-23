@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SeatActivity extends AppCompatActivity {
     NavigationView navigationView;
@@ -31,8 +33,10 @@ public class SeatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
+
 
         //fragment 설정
         sungshin3F sungshin3F = new sungshin3F();
@@ -43,6 +47,7 @@ public class SeatActivity extends AppCompatActivity {
 
         // 가장 먼저 띄워줄 프래그먼트 설정
         Bundle bundle = new Bundle();
+
         bundle.putInt("noise_level", getIntent().getIntExtra("noise_level",0));
         bundle.putInt("people_count", getIntent().getIntExtra("people_count",0));
         bundle.putBoolean("mic_TF", getIntent().getBooleanExtra("mic_TF",false));
