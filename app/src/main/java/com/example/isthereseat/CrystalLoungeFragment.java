@@ -29,6 +29,8 @@ import java.util.TimerTask;
 
 public class CrystalLoungeFragment extends Fragment {
 
+    // 마이크, 키보드 사용 불가능
+
     ArrayList<Double> decibels = new ArrayList<>(Arrays.asList(35.3, 35.0, 34.1, 35.2, 32.4, 31.9, 33.2, 34.2, 35.2, 33.7));
     double decibel;
     TextView time;
@@ -91,19 +93,7 @@ public class CrystalLoungeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_crystal_lounge, container, false);
-/*
-        int noise_level = getArguments().getInt("noise_level");
-        boolean micTF =  getArguments().getBoolean("mic_TF");
-        boolean micTF_check =  getArguments().getBoolean("mic_TF_check");
-        boolean keyboardTF = getArguments().getBoolean("keyboard_TF");
-        boolean keyboard_tf_check = getArguments().getBoolean("keyboard_TF_check");
 
-        Log.d("sujung_in1F_fragment","선택된 노이즈 정도 : " + getArguments().getInt("noise_level"));
-        Log.d("sujung_in1F_fragment","마이크 선택 : " + getArguments().getBoolean("mic_TF"));
-        Log.d("sujung_in1F_fragment","마이크 선택 상관없음 : " + getArguments().getBoolean("mic_TF_check"));
-        Log.d("sujung_in1F_fragment","키보드 선택 : " + getArguments().getBoolean("keyboard_TF"));
-        Log.d("sujung_in1F_fragment","키보드 선택 상관없음 : " + getArguments().getBoolean("keyboard_TF_check"));
-*/
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("crystal");
@@ -124,6 +114,14 @@ public class CrystalLoungeFragment extends Fragment {
                 Log.w("readData_in_crystal", "Failed to read value.", error.toException());
             }
         });
+
+        Bundle option_data = getArguments();
+        int noise_level = option_data.getInt("noise_level");
+//        int noise_level = getArguments().getInt("noise_level");
+        boolean mic_tf = option_data.getBoolean("mic_TF");
+        boolean mic_tf_check = option_data.getBoolean("mic_TF_check");
+        boolean keyboard_tf = option_data.getBoolean("keyboard_TF");
+        boolean keyboard_tf_check = option_data.getBoolean("keyboard_TF_check");
 
         //좌석 id
         int ids[] = {
@@ -147,6 +145,17 @@ public class CrystalLoungeFragment extends Fragment {
             seats.set(i, (View) v.findViewById(ids[i]));
         }
 
+        if (mic_tf || keyboard_tf) {
+
+            for (int i = 0; i < ids.length; i++) {
+                View view = v.findViewById(ids[i]);
+                seats.add(view);
+            }
+
+            for(int i = 0; i< seats.size(); i++)
+                seats.get(i).setBackgroundColor(Color.parseColor("#929495"));
+        }
+
         time = (TextView) v.findViewById(R.id.hour);
         deci_view = (TextView) v.findViewById(R.id.decibel_in_crystalLounge);
 
@@ -154,13 +163,7 @@ public class CrystalLoungeFragment extends Fragment {
         CrystalLoungeFragment.timeTask timeTask = new CrystalLoungeFragment.timeTask();
         mtimer = new Timer();
         mtimer.schedule(timeTask, 500, 1000);
-        // ----------
-        /*
-        if ((noise_level != 2)) {*/
-        for(int i =0; i<seats.size(); i++) {
-            seats.get(i).setBackgroundColor(Color.parseColor("#929495"));
-        }
-        //}
+
 
         return v;
 
