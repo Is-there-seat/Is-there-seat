@@ -11,20 +11,30 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 // 소음 level 2에 해당
-// 마이크 키보드 선택 안하면 -> 마이크 키보드가 안되는 곳이 추천... 그러면 애초에 옵션 선택을 안했을 경우엔 상관 없음으로 가?
+
 public class sungshin3F extends Fragment {
+
+    // 마이크 키보드 사용 가능
 
     double decibels[] = {36.69, 36.75, 35.73, 38.12, 46.03, 46.87, 42.75, 43.25, 44.17, 41.26};
     double decibel;
     TextView time;
     TextView deci_view;
-    View seats[];
+    ArrayList<View> seats = new ArrayList<>();
     MainActivity mainActivity;
 
     // 실시간 시간 출력에 필요한 코드
@@ -83,19 +93,37 @@ public class sungshin3F extends Fragment {
                              Bundle savedInstanceState) {
 
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("sungshin");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+
+                Log.d("readData_in_sungshin", "Value is: " + map);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("readData_in_sungshin", "Failed to read value.", error.toException());
+            }
+        });
+
+
         ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_sungshin3_f, container, false);
 
-        int noise_level = getArguments().getInt("noise_level");
-        int people_count = getArguments().getInt("people_count");
-        boolean micTF =  getArguments().getBoolean("mic_TF");
-        boolean keyboardTF = getArguments().getBoolean("keyboard_TF");
+        Bundle option_data = getArguments();
+        int noise_level = option_data.getInt("noise_level");
+//        int noise_level = getArguments().getInt("noise_level");
+        boolean mic_tf = option_data.getBoolean("mic_TF");
+        boolean mic_tf_check = option_data.getBoolean("mic_TF_check");
+        boolean keyboard_tf = option_data.getBoolean("keyboard_TF");
+        boolean keyboard_tf_check = option_data.getBoolean("keyboard_TF_check");
 
-        Log.d("in3F_fragment","선택된 노이즈 정도 : " + getArguments().getInt("noise_level"));
-        Log.d("in3F_fragment","선택된 인원 : " + getArguments().getInt("people_count"));
-        Log.d("in3F_fragment","마이크 선택 : " + getArguments().getBoolean("mic_TF"));
-        Log.d("in3F_fragment","키보드 선택 : " + getArguments().getBoolean("keyboard_TF"));
-        //좌석
-        seats = new View[48];
 
         //좌석 id
         int ids[] = {
@@ -105,8 +133,16 @@ public class sungshin3F extends Fragment {
                 R.id.seat4_1, R.id.seat4_2, R.id.seat4_3, R.id.seat4_4, R.id.seat4_5, R.id.seat4_6, R.id.seat4_7, R.id.seat4_8, R.id.seat4_9, R.id.seat4_10, R.id.seat4_11, R.id.seat4_12,
         };
 
-        for(int i =0; i<seats.length; i++) {
-            seats[i] = (View) v.findViewById(ids[i]);
+        if (!mic_tf || !keyboard_tf) {
+
+            for (int i = 0; i < ids.length; i++) {
+                View view = v.findViewById(ids[i]);
+                seats.add(view);
+            }
+
+            for(int i = 0; i< seats.size(); i++)
+                seats.get(i).setBackgroundColor(Color.parseColor("#929495"));
+
         }
 
         time = (TextView) v.findViewById(R.id.hour);
@@ -115,12 +151,7 @@ public class sungshin3F extends Fragment {
         timeTask timeTask = new timeTask();
         mtimer = new Timer();
         mtimer.schedule(timeTask, 500, 1000);
-        // ----------
-        if ((noise_level != 2)) {
-            for(int i =0; i<seats.length; i++) {
-                seats[i].setBackgroundColor(Color.parseColor("#929495"));
-            }
-        }
+
 
 
         return v;
