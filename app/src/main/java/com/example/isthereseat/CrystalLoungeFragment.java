@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+// 이게 진짜다... 제대로 들어갔다....
 public class CrystalLoungeFragment extends Fragment {
 
     // 마이크, 키보드 사용 불가능
