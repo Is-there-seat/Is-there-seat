@@ -57,7 +57,6 @@
                 android:layout_marginBottom="80dp"
                 android:orientation="horizontal">
 
-
                 <!--                //left chairs of desk 1.1-->
 
                 <View
