@@ -8,20 +8,28 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SearchActivity extends AppCompatActivity {
 //min max
+
+    boolean applyOption = false;
     int applyed_noise = 0;
-    boolean applyed_mic;
+    boolean applyed_mic = false;
     boolean applyed_mic_check = false;
-    boolean applyed_keyboard;
+    boolean applyed_keyboard = false;
     boolean applyed_keyboard_check = false;
 
-    boolean noise_a;
-    boolean noise_b;
-    boolean noise_c;
+    public static final String APPLYED_OPTION = "applyOption";
+    public static final String APPLYED_NOISE = "applyed_noise";
+    public static final String APPLYED_MIC = "applyed_mic";
+    public static final String APPLYED_MIC_CHECK = "applyed_mic_check";
+    public static final String APPLYED_KEYBOARD = "applyed_keyboard";
+    public static final String APPLYED_KEYBOARD_CHECK = "applyed_keyboard_check" ;
+
+
 
     public int get_noise_level(){
         return applyed_noise;
@@ -58,18 +66,27 @@ public class SearchActivity extends AppCompatActivity {
 
         //noise
 
+
         btn_noise_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(btn_noise_a.isSelected()) {
                     btn_noise_a.setSelected(false);
-                    applyed_noise -= 1;
-                    noise_a = false;
+                    applyed_noise = 0;
+                    applyOption = false;
                 }
                 else{
+                    if(btn_noise_b.isSelected()) {
+                        btn_keyboard_b.setSelected(false);
+                    }
+                    else if(btn_keyboard_c.isSelected()) {
+                        btn_keyboard_c.setSelected(false);
+                    }
                     btn_noise_a.setSelected(true);
-                    applyed_noise += 1;
-                    noise_a = true;
+                    btn_noise_b.setSelected(false);
+                    btn_noise_c.setSelected(false);
+                    applyed_noise = 1;
+                    applyOption = true;
                 }
             }
         });
@@ -79,13 +96,21 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(btn_noise_b.isSelected()) {
                     btn_noise_b.setSelected(false);
-                    applyed_noise -= 1;
-                    noise_b = false;
+                    applyed_noise = 0;
+                    applyOption = false;
                 }
                 else{
+                    if(btn_noise_a.isSelected()) {
+                        btn_keyboard_a.setSelected(false);
+                    }
+                    else if(btn_keyboard_c.isSelected()) {
+                        btn_keyboard_c.setSelected(false);
+                    }
                     btn_noise_b.setSelected(true);
-                    applyed_noise += 1;
-                    noise_b = true;
+                    btn_noise_a.setSelected(false);
+                    btn_noise_c.setSelected(false);
+                    applyed_noise = 2;
+                    applyOption = true;
                 }
             }
         });
@@ -95,18 +120,24 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(btn_noise_c.isSelected()) {
                     btn_noise_c.setSelected(false);
-                    applyed_noise -= 1;
-                    noise_c = false;
+                    applyed_noise = 0 ;
+                    applyOption = false;
                 }
                 else{
+                    if(btn_noise_a.isSelected()) {
+                        btn_keyboard_a.setSelected(false);
+                    }
+                    else if(btn_keyboard_b.isSelected()) {
+                        btn_keyboard_b.setSelected(false);
+                    }
                     btn_noise_c.setSelected(true);
-                    applyed_noise += 1;
-                    noise_c = true;
+                    btn_noise_a.setSelected(false);
+                    btn_noise_b.setSelected(false);
+                    applyed_noise = 3;
+                    applyOption = true;
                 }
             }
         });
-
-        //mic
 
         btn_mic_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +145,7 @@ public class SearchActivity extends AppCompatActivity {
                 if(btn_mic_a.isSelected()) {
                     btn_mic_a.setSelected(false);
                     applyed_mic = false;
+                    applyOption = false;
                 }
                 else{
                     if(btn_mic_b.isSelected()){
@@ -125,6 +157,7 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     applyed_mic = true;
                     btn_mic_a.setSelected(true);
+                    applyOption = true;
                 }
             }
         });
@@ -136,6 +169,7 @@ public class SearchActivity extends AppCompatActivity {
                     btn_mic_b.setSelected(false);
                     applyed_mic_check = false;
                     applyed_mic = false;
+                    applyOption = false;
                 }
                 else{
                     if(btn_mic_a.isSelected()){
@@ -147,6 +181,7 @@ public class SearchActivity extends AppCompatActivity {
                     applyed_mic = false;
                     applyed_mic_check = true;
                     btn_mic_b.setSelected(true);
+                    applyOption = true;
                 }
             }
         });
@@ -157,6 +192,7 @@ public class SearchActivity extends AppCompatActivity {
                 if(btn_mic_c.isSelected()) {
                     btn_mic_c.setSelected(false);
                     applyed_mic = false;
+                    applyOption = false;
                 }
                 else{
                     if(btn_mic_a.isSelected()){
@@ -164,22 +200,23 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     else if(btn_mic_b.isSelected()){
                         btn_mic_b.setSelected(false);
-                        applyed_mic_check = false;
                     }
                     applyed_mic = true;
                     btn_mic_c.setSelected(true);
+                    applyOption = true;
+
                 }
             }
         });
 
         //keyboard
-
         btn_keyboard_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(btn_keyboard_a.isSelected()) {
                     btn_keyboard_a.setSelected(false);
                     applyed_keyboard = false;
+                    applyOption = false;
                 }
                 else{
                     if(btn_keyboard_b.isSelected()){
@@ -191,6 +228,7 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     applyed_keyboard = true;
                     btn_keyboard_a.setSelected(true);
+                    applyOption = true;
                 }
             }
         });
@@ -202,6 +240,7 @@ public class SearchActivity extends AppCompatActivity {
                     btn_keyboard_b.setSelected(false);
                     applyed_keyboard_check = false;
                     applyed_keyboard = false;
+                    applyOption = false;
                 }
                 else{
                     if(btn_keyboard_a.isSelected()){
@@ -210,9 +249,11 @@ public class SearchActivity extends AppCompatActivity {
                     else if(btn_keyboard_c.isSelected()){
                         btn_keyboard_c.setSelected(false);
                     }
-                    applyed_keyboard = true;
+
+                    applyed_keyboard = false;
                     applyed_keyboard_check = true;
                     btn_keyboard_b.setSelected(true);
+                    applyOption = true;
                 }
             }
         });
@@ -230,13 +271,14 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     else if(btn_keyboard_b.isSelected()){
                         btn_keyboard_b.setSelected(false);
-                        applyed_keyboard_check = false;
                     }
                     applyed_keyboard = true;
                     btn_keyboard_c.setSelected(true);
+                    applyOption = true;
                 }
             }
         });
+
 
         btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,11 +297,11 @@ public class SearchActivity extends AppCompatActivity {
                 intent.putExtra("mic_TF_check", applyed_mic_check);
                 intent.putExtra("keyboard_TF", applyed_keyboard);
                 intent.putExtra("keyboard_TF_check", applyed_keyboard_check);
+                intent.putExtra("applyedOption", applyOption);
                 startActivity(intent);
             }
 
         });
-
         btn_initial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -288,15 +330,41 @@ public class SearchActivity extends AppCompatActivity {
                 applyed_noise = 0;
                 applyed_keyboard = false;
                 applyed_mic = false;
+                applyOption = false;
             }
         });
 
         findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onStop();
             }
         });
+
+        if(savedInstanceState==null) {
+        } else {
+            applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
+            applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
+            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
+            applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
+            Log.d("check for bundel", "not null. data from prev");
+        }
+
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean(APPLYED_OPTION, applyOption);
+        outState.putInt(APPLYED_NOISE, applyed_noise);
+        outState.putBoolean(APPLYED_MIC, applyed_mic);
+        outState.putBoolean(APPLYED_MIC_CHECK, applyed_mic_check);
+        outState.putBoolean(APPLYED_KEYBOARD, applyed_keyboard);
+        outState.putBoolean(APPLYED_KEYBOARD_CHECK, applyed_keyboard_check);
 
     }
 }

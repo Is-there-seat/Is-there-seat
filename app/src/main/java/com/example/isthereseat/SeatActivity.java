@@ -31,6 +31,7 @@ public class SeatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
 
@@ -44,12 +45,15 @@ public class SeatActivity extends AppCompatActivity {
         // 가장 먼저 띄워줄 프래그먼트 설정
         Bundle bundle = new Bundle();
         bundle.putInt("noise_level", getIntent().getIntExtra("noise_level",0));
-        bundle.putInt("people_count", getIntent().getIntExtra("people_count",0));
         bundle.putBoolean("mic_TF", getIntent().getBooleanExtra("mic_TF",false));
         bundle.putBoolean("mic_TF_check", getIntent().getBooleanExtra("mic_TF_check",false));
+        bundle.putBoolean("keyboard_TF", getIntent().getBooleanExtra("keyboard_TF",false));
         bundle.putBoolean("keyboard_TF_check", getIntent().getBooleanExtra("keyboard_TF_check",false));
+        bundle.putBoolean("applyedOption", getIntent().getBooleanExtra("applyedOption", false));
 
         sungshin3F.setArguments(bundle);
+        sujungFragment.setArguments(bundle);
+        crystalLoungeFragment.setArguments(bundle);
 
         ImageButton iv_menu = (ImageButton) findViewById(R.id.iv_menu);
         ImageView iv_search = (ImageView) findViewById(R.id.iv_search);
