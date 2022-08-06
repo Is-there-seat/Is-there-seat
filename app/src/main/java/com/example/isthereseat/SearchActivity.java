@@ -58,6 +58,8 @@ public class SearchActivity extends AppCompatActivity {
 
         //noise
 
+        // noise 에서 +- 1등을 왜 사용한지 모르겠음 - 소음에서 중복 선택이 가능한데 이게 맞는지...?
+
         btn_noise_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +108,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        //mic
+        // mic keyboard 상관없음이 다른 변수값을 가지는데 굳이 그럴필요가 있는지...? 그냥 true / false 두가지 값이 아닌 세가지 값으로 해도 될듯
 
         btn_mic_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,7 +212,8 @@ public class SearchActivity extends AppCompatActivity {
                     else if(btn_keyboard_c.isSelected()){
                         btn_keyboard_c.setSelected(false);
                     }
-                    applyed_keyboard = true;
+                    // 여기수정함
+                    applyed_keyboard = false;
                     applyed_keyboard_check = true;
                     btn_keyboard_b.setSelected(true);
                 }
