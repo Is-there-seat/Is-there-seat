@@ -64,8 +64,17 @@ public class SearchActivity extends AppCompatActivity {
         Button btn_initial = (Button) findViewById(R.id.btn_initial);
         Button btn_apply = (Button) findViewById(R.id.btn_apply);
 
-        //noise
-
+        if(savedInstanceState==null) {
+            Log.d("check for bundle", "it's null");
+        } else {
+            applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
+            applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
+            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
+            applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
+            Log.d("check for bundel", "not null. data from prev");
+        }
 
         btn_noise_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -337,20 +346,11 @@ public class SearchActivity extends AppCompatActivity {
         findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onStop();
+                finish();
             }
         });
 
-        if(savedInstanceState==null) {
-        } else {
-            applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
-            applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
-            applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
-            applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
-            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
-            applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
-            Log.d("check for bundel", "not null. data from prev");
-        }
+
 
 
     }

@@ -124,7 +124,7 @@ public class sungshin3F extends Fragment {
                 // whenever data at this location is updated.
                 Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
                 List<String> keySet = new ArrayList<>(map.keySet());
-                Collections.reverse(keySet);
+                Collections.sort(keySet);
 
                 for(String s : keySet) {
                     if(map.get(s).toString() == "")

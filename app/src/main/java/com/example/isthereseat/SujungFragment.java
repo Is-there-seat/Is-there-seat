@@ -1,6 +1,7 @@
 package com.example.isthereseat;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -132,35 +133,35 @@ public class SujungFragment extends Fragment {
                 Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
                 Log.d("readData_in_sujung", "Value is: " + map);
                 List<String> keySet = new ArrayList<>(map.keySet());
-                Collections.reverse(keySet);
+                Collections.sort(keySet);
 
                 for(String s : keySet) {
-                    Log.d("readData_in_sujung", " 맵 키 : " + map.get(s).toString());
+                    Log.d("readData_in_sujung", " 맵 키 : " +  s + " " + map.get(s).toString());
                     if(map.get(s).toString() == "")
                         seat_status.add(0);
                     else
                         seat_status.add(Integer.parseInt(map.get(s).toString()));
                 }
 
-                for(int i = 0; i < ids.length; i++) {
-                    if(seat_status.get(i) == -1) {
-                        // 사용 가능
-                        if((applyedOption)
-                                && ((noise_level == 3) || (noise_level == 0 ))
-                                && ((mic_tf && keyboard_tf)
-                                || ( mic_tf_check && keyboard_tf_check )))
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
-                        else
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
-
-                    }else if (seat_status.get(i) == 0) {
-                        // 사용 중
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
-                    }else {
-                        // 20
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
-                    }
-                }
+//                for(int i = 0; i < ids.length; i++) {
+//                    if(seat_status.get(i) == -1) {
+//                        // 사용 가능
+//                        if((applyedOption)
+//                                && ((noise_level == 3) || (noise_level == 0 ))
+//                                && ((mic_tf && keyboard_tf)
+//                                || ( mic_tf_check && keyboard_tf_check )))
+//                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
+//                        else
+//                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
+//
+//                    }else if (seat_status.get(i) == 0) {
+//                        // 사용 중
+//                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
+//                    }else {
+//                        // 20
+//                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
+//                    }
+//                }
             }
 
             @Override
@@ -175,22 +176,71 @@ public class SujungFragment extends Fragment {
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d("MainActivity", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
+
+//                Log.d("onChildAdded", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
+//                String key = dataSnapshot.getKey();
+//                int big = Integer.parseInt(key.substring(0,2));
+//                int small = Integer.parseInt(key.substring(2));
+//                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+//                int id = getResources().getIdentifier("sujung_seat" + big  + "_" + small,"id",getActivity().getPackageName());
+//                Log.d("Id : ", "sujung_seat" + big  + "_" + small);
+//
+//                if(value == -1) {
+//                    // 사용 가능
+//                    if((applyedOption)
+//                            && ((noise_level == 3) || (noise_level == 0 ))
+//                            && ((mic_tf && keyboard_tf)
+//                            || ( mic_tf_check && keyboard_tf_check )))
+//                        v.findViewById(id).setBackgroundColor(Color.parseColor("#EF000E"));
+//                    else
+//                        v.findViewById(id).setBackgroundColor(Color.parseColor("#0053B0"));
+//
+//                }else if (value == 0) {
+//                    // 사용 중
+//                    v.findViewById(id).setBackgroundColor(Color.parseColor("#878787"));
+//                }else {
+//                    // 20
+//                    v.findViewById(id).setBackgroundColor(Color.parseColor("#FAE100"));
+//                }
+
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                Log.d("readData_in_sujung", "ChildEventListener - onChildChanged : " + dataSnapshot.getKey() + " : " + dataSnapshot.getValue());
+                Log.d("onChildChanged", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
                 String key = dataSnapshot.getKey();
-                int big = Integer.parseInt(key.substring(0, 2));
+                int big = Integer.parseInt(key.substring(0,2));
                 int small = Integer.parseInt(key.substring(2));
-                String packageName = getContext().getPackageName();
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
 
-                // id값 만들기
-                int resId = getResources().getIdentifier("sujung_seat" + big + "_" + small, "id", packageName);
-                v.findViewById(resId).setBackgroundColor(Color.parseColor("#a4d9f5"));
+                int id = getResources().getIdentifier("sujung_seat" + big  + "_" + small,"id", getContext().getPackageName() );
 
+                Log.d("Id : ", "sujung_seat" + big  + "_" + small);
+                Log.d("value","value is " + value);
+
+                if(value == -1) {
+                    // 사용 가능
+                    if((applyedOption) // 추천 좌석
+                            && ((noise_level == 3) || (noise_level == 0 ))
+                            && ((mic_tf && keyboard_tf)
+                            || ( mic_tf_check && keyboard_tf_check ))) {
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_recommend));
+                        Log.d("color test", "color test1");
+                    }
+                    else // 추천좌석아닌 사용가능한 좌석
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_available));
+                }else if (value == 0) {
+                    // 사용 중
+                    v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_using));
+                    Log.d("color test", "color test2");
+                }else {
+                    // 20
+                    v.findViewById(id).setBackgroundColor(Color.parseColor("#FAE100"));
+                    Log.d("color test", "color test3");
+                }
+                String idString = getResources().getString(id);
+                Log.d("color", "id 값은 ? " +idString );
             }
 
             @Override
