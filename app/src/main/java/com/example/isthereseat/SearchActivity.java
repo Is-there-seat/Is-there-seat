@@ -30,22 +30,22 @@ public class SearchActivity extends AppCompatActivity {
     public static final String APPLYED_KEYBOARD_CHECK = "applyed_keyboard_check" ;
 
 
-
-    public int get_noise_level(){
-        return applyed_noise;
-    }
-    public boolean getMicTF(){
-        return applyed_mic;
-    }
-    public boolean getMicCheckTF(){
-        return applyed_mic_check;
-    }
-    public boolean getKeyboardTF(){
-        return applyed_keyboard;
-    }
-    public boolean getKeyboardCheckTF(){
-        return applyed_keyboard_check;
-    }
+//
+//    public int get_noise_level(){
+//        return applyed_noise;
+//    }
+//    public boolean getMicTF(){
+//        return applyed_mic;
+//    }
+//    public boolean getMicCheckTF(){
+//        return applyed_mic_check;
+//    }
+//    public boolean getKeyboardTF(){
+//        return applyed_keyboard;
+//    }
+//    public boolean getKeyboardCheckTF(){
+//        return applyed_keyboard_check;
+//    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -349,10 +349,52 @@ public class SearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("lifeCycle", "onResume");
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("lifeCycle", "onStop");
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("lifeCycle", "onPause");
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("lifeCycle", "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("lifeCycle", "onStart");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState==null) {
+            Log.d("bundle in onRestoreInst", "it's null");
+        } else {
+            applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
+            applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
+            applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
+            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
+            applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
+            Log.d("bundel in onRestoreInst", "not null. data from prev");
+        }
     }
 
     @Override
@@ -365,6 +407,7 @@ public class SearchActivity extends AppCompatActivity {
         outState.putBoolean(APPLYED_MIC_CHECK, applyed_mic_check);
         outState.putBoolean(APPLYED_KEYBOARD, applyed_keyboard);
         outState.putBoolean(APPLYED_KEYBOARD_CHECK, applyed_keyboard_check);
+        Log.d("saved", "saved");
 
     }
 }

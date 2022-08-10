@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -125,54 +126,121 @@ public class CrystalLoungeFragment extends Fragment {
                 R.id.crystal_seat14_5, R.id.crystal_seat15_5, R.id.crystal_seat16_5,
         };
 
+//
+//        if((applyedOption)
+//                && ((noise_level == 1) || (noise_level == 0 ))
+//                && ((!mic_tf && !keyboard_tf)
+//                || ( mic_tf_check && keyboard_tf_check )))
+
         int seat_size = ids.length;
         ArrayList<Integer> seat_status = new ArrayList<Integer>();
 
-        myRef.addValueEventListener(new ValueEventListener() {
 
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                 @Override
+                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                                                     Log.d("readData_in_crystal", "Value is: " + map);
+                                                     List<String> keySet = new ArrayList<>(map.keySet());
+                                                     Collections.sort(keySet);
+
+                                                     for (String s : keySet) {
+                                                         Log.d("readData_in_crystal", " 맵 키 : " + s + " " + map.get(s).toString());
+                                                         if (map.get(s).toString() == "")
+                                                             seat_status.add(0);
+                                                         else
+                                                             seat_status.add(Integer.parseInt(map.get(s).toString()));
+                                                     }
+
+                                                     for (int i = 0; i < ids.length; i++) {
+                                                         if (seat_status.get(i) == -1) {
+                                                             //사용 가능
+                                                             if ((applyedOption)
+                                                                     && ((noise_level == 1) || (noise_level == 0))
+                                                                     && ((!mic_tf && !keyboard_tf)
+                                                                     || (mic_tf_check && keyboard_tf_check)))
+                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
+                                                             else
+                                                                 v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
+
+                                                         } else if (seat_status.get(i) == 0) {
+                                                             // 사용 중
+                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
+                                                         } else {
+                                                             // 20
+                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
+                                                         }
+                                                     }
+                                                 }
+
+
+                                                 @Override
+                                                 public void onCancelled(@NonNull DatabaseError error) {
+                                                 }
+                                             }
+        );
+
+
+        myRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                List<String> keySet = new ArrayList<>(map.keySet());
-                Collections.reverse(keySet);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                for(String s : keySet) {
-                    Log.d("readData_in_sujung", " 맵 키 : " + map.get(s).toString());
-                    if(map.get(s).toString() == "")
-                        seat_status.add(0);
-                    else
-                        seat_status.add(Integer.parseInt(map.get(s).toString()));
-                }
-
-                for(int i = 0; i < ids.length; i++) {
-                    if(seat_status.get(i) == -1) {
-                        if((applyedOption)
-                                && ((noise_level == 1) || (noise_level == 0 ))
-                                && ((!mic_tf && !keyboard_tf)
-                                || ( mic_tf_check && keyboard_tf_check )))
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
-                        else
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
-
-                    }else if (seat_status.get(i) == 0) {
-                        // 사용 중
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
-
-                    }else {
-                        // 20
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
-                    }
-                }
-
-                Log.d("readData_in_sujung", "Value is: " + map);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("readData_in_crystal", "Failed to read value.", error.toException());
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                Log.d("onChildChanged", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
+                String key = dataSnapshot.getKey();
+                int big = Integer.parseInt(key.substring(0, 2));
+                int small = Integer.parseInt(key.substring(2));
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
+
+                int id = getResources().getIdentifier("crystal_seat" + big + "_" + small, "id", getContext().getPackageName());
+
+                Log.d("Id : ", "crystal_seat" + big + "_" + small);
+                Log.d("value", "value is " + value);
+
+                if (value == -1) {
+                    // 사용 가능
+                    if ((applyedOption) // 추천 좌석
+                            && ((noise_level == 1) || (noise_level == 0))
+                            && ((!mic_tf && !keyboard_tf)
+                            || (mic_tf_check && keyboard_tf_check))) {
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_recommend));
+                        Log.d("color test", "color test1");
+                    } else // 추천좌석아닌 사용가능한 좌석
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_available));
+                } else if (value == 0) {
+                    // 사용 중
+                    v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_using));
+                    Log.d("color test", "color test2");
+                } else {
+                    // 20
+                    v.findViewById(id).setBackgroundColor(Color.parseColor("#FAE100"));
+                    Log.d("color test", "color test3");
+                }
+                String idString = getResources().getString(id);
+                Log.d("color", "id 값은 ? " + idString);
             }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.d("MainActivity", "ChildEventListener - onChildRemoved : " + dataSnapshot.getKey());
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                Log.d("MainActivity", "ChildEventListener - onChildMoved" + s);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("MainActivity", "ChildEventListener - onCancelled" + databaseError.getMessage());
+            }
+
         });
+
 
 
         for(int i =0; i<seats.size(); i++) {

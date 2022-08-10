@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.ChildEventListener;
@@ -53,7 +54,7 @@ public class sungshin3F extends Fragment {
             int index = hour - 9;
             if (index <= 0) {
                 deci_view.setText("-"); // 9 시 이전의 경우
-            } else if ((1<= index) && (index < 10)) {
+            } else if ((1 <= index) && (index < 10)) {
                 decibel = decibels[index]; // 10시부터 18시 까지
                 deci_view.setText(Double.toString(decibel));
             } else
@@ -117,69 +118,93 @@ public class sungshin3F extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("sungshin");
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                List<String> keySet = new ArrayList<>(map.keySet());
-                Collections.sort(keySet);
 
-                for(String s : keySet) {
-                    if(map.get(s).toString() == "")
-                        seat_status.add(0);
-                    else
-                        seat_status.add(Integer.parseInt(map.get(s).toString()));
-                }
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                 @Override
+                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                                                     Log.d("readData_in_sungshin", "Value is: " + map);
+                                                     List<String> keySet = new ArrayList<>(map.keySet());
+                                                     Collections.sort(keySet);
 
-                for(int i = 0; i < ids.length; i++) {
-                    if(seat_status.get(i) == -1) {
-                        // 추천좌석
-                        if((applyedOption)
-                                &&((noise_level == 2) || (noise_level == 0 ))
-                                && ((mic_tf && keyboard_tf)
-                                || ( mic_tf_check && keyboard_tf_check )))
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
-                        else
-                            v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
-                    }else if (seat_status.get(i) == 0) {
-                        // 사용 중
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
+                                                     for (String s : keySet) {
+                                                         Log.d("readData_in_sujung", " 맵 키 : " + s + " " + map.get(s).toString());
+                                                         if (map.get(s).toString() == "")
+                                                             seat_status.add(0);
+                                                         else
+                                                             seat_status.add(Integer.parseInt(map.get(s).toString()));
+                                                     }
 
-                    }else {
-                        // 20
-                        v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
-                    }
-                }
-            }
+                                                     for (int i = 0; i < ids.length; i++) {
+                                                         if (seat_status.get(i) == -1) {
+                                                             // 사용 가능
+                                                             if ((applyedOption)
+                                                                     && ((noise_level == 2) || (noise_level == 0))
+                                                                     && ((mic_tf && keyboard_tf)
+                                                                     || (mic_tf_check && keyboard_tf_check)))
+                                                                 v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
+                                                             else
+                                                                 v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("readData_in_sungshin", "Failed to read value.", error.toException());
-            }
-        });
+                                                         } else if (seat_status.get(i) == 0) {
+                                                             // 사용 중
+                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
+                                                         } else {
+                                                             // 20
+                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
+                                                         }
+                                                     }
+                                                 }
+
+
+                                                 @Override
+                                                 public void onCancelled(@NonNull DatabaseError error) {
+                                                 }
+                                             }
+        );
+
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d("MainActivity", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
+
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                Log.d("readData_in_sujung", "ChildEventListener - onChildChanged : " + dataSnapshot.getKey() + " : " + dataSnapshot.getValue());
+                Log.d("onChildChanged", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
                 String key = dataSnapshot.getKey();
                 int big = Integer.parseInt(key.substring(0, 2));
                 int small = Integer.parseInt(key.substring(2));
-                String packageName = getContext().getPackageName();
+                int value = Integer.parseInt(dataSnapshot.getValue().toString());
 
-                // id값 만들기
-                int resId = getResources().getIdentifier("sujung_seat" + big + "_" + small, "id", packageName);
-                v.findViewById(resId).setBackgroundColor(Color.parseColor("#a4d9f5"));
+                int id = getResources().getIdentifier("seat" + big + "_" + small, "id", getContext().getPackageName());
 
+                Log.d("Id : ", "seat" + big + "_" + small);
+                Log.d("value", "value is " + value);
+
+                if (value == -1) {
+                    // 사용 가능
+                    if ((applyedOption) // 추천 좌석
+                            && ((noise_level == 2) || (noise_level == 0))
+                            && ((mic_tf && keyboard_tf)
+                            || (mic_tf_check && keyboard_tf_check))) {
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_recommend));
+                        Log.d("color test", "color test1");
+                    } else // 추천좌석아닌 사용가능한 좌석
+                        v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_available));
+                } else if (value == 0) {
+                    // 사용 중
+                    v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_using));
+                    Log.d("color test", "color test2");
+                } else {
+                    // 20
+                    v.findViewById(id).setBackgroundColor(Color.parseColor("#FAE100"));
+                    Log.d("color test", "color test3");
+                }
+                String idString = getResources().getString(id);
+                Log.d("color", "id 값은 ? " + idString);
             }
 
             @Override
@@ -200,16 +225,12 @@ public class sungshin3F extends Fragment {
         });
 
 
-
-
-
         time = (TextView) v.findViewById(R.id.hour);
         deci_view = (TextView) v.findViewById(R.id.decibel_in_sungshin3F);
         // 실시간 시간 출력
         timeTask timeTask = new timeTask();
         mtimer = new Timer();
         mtimer.schedule(timeTask, 500, 1000);
-
 
 
         return v;
