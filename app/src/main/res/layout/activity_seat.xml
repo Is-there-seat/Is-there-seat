@@ -67,7 +67,7 @@
         <LinearLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:background="@color/white"
             android:orientation="vertical"
@@ -80,6 +80,17 @@
                 android:background="#DFDFDF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="* 사용 가능 좌석은 5분 뒤에 사용 중으로 표시됩니다."
+                android:textStyle="bold"
+                android:fontFamily="@font/paybooc_medium"
+                android:textColor="#E11414"
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

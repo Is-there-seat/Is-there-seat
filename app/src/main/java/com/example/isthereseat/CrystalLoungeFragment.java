@@ -1,4 +1,5 @@
 package com.example.isthereseat;
+
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -151,7 +152,6 @@ public class CrystalLoungeFragment extends Fragment {
                                                          else
                                                              seat_status.add(Integer.parseInt(map.get(s).toString()));
                                                      }
-
                                                      for (int i = 0; i < ids.length; i++) {
                                                          if (seat_status.get(i) == -1) {
                                                              //사용 가능
@@ -159,20 +159,19 @@ public class CrystalLoungeFragment extends Fragment {
                                                                      && ((noise_level == 1) || (noise_level == 0))
                                                                      && ((!mic_tf && !keyboard_tf)
                                                                      || (mic_tf_check && keyboard_tf_check)))
-                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#EF000E"));
+                                                                 v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_recommend));
                                                              else
-                                                                 v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#0053B0"));
+                                                                 v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_available));
 
                                                          } else if (seat_status.get(i) == 0) {
                                                              // 사용 중
-                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#878787"));
+                                                             v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_using));
                                                          } else {
                                                              // 20
-                                                             v.findViewById(ids[i]).setBackgroundColor(Color.parseColor("#FAE100"));
+                                                             v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_check));
                                                          }
                                                      }
                                                  }
-
 
                                                  @Override
                                                  public void onCancelled(@NonNull DatabaseError error) {
@@ -180,16 +179,13 @@ public class CrystalLoungeFragment extends Fragment {
                                              }
         );
 
-
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
                 Log.d("onChildChanged", "ChildEventListener - onChildAdded : " + dataSnapshot.getValue());
                 String key = dataSnapshot.getKey();
                 int big = Integer.parseInt(key.substring(0, 2));
@@ -217,7 +213,7 @@ public class CrystalLoungeFragment extends Fragment {
                     Log.d("color test", "color test2");
                 } else {
                     // 20
-                    v.findViewById(id).setBackgroundColor(Color.parseColor("#FAE100"));
+                    v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_check));
                     Log.d("color test", "color test3");
                 }
                 String idString = getResources().getString(id);
@@ -242,8 +238,7 @@ public class CrystalLoungeFragment extends Fragment {
         });
 
 
-
-        for(int i =0; i<seats.size(); i++) {
+        for (int i = 0; i < seats.size(); i++) {
             seats.set(i, (View) v.findViewById(ids[i]));
         }
 

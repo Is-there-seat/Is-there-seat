@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,7 @@ public class SearchActivity extends AppCompatActivity {
     public static final String APPLYED_MIC = "applyed_mic";
     public static final String APPLYED_MIC_CHECK = "applyed_mic_check";
     public static final String APPLYED_KEYBOARD = "applyed_keyboard";
-    public static final String APPLYED_KEYBOARD_CHECK = "applyed_keyboard_check" ;
+    public static final String APPLYED_KEYBOARD_CHECK = "applyed_keyboard_check";
 
 
 //
@@ -64,14 +65,14 @@ public class SearchActivity extends AppCompatActivity {
         Button btn_initial = (Button) findViewById(R.id.btn_initial);
         Button btn_apply = (Button) findViewById(R.id.btn_apply);
 
-        if(savedInstanceState==null) {
+        if (savedInstanceState == null) {
             Log.d("check for bundle", "it's null");
         } else {
             applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
             applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
             applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
             applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
-            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
+            applyed_keyboard_check = savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
             applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
             Log.d("check for bundel", "not null. data from prev");
         }
@@ -79,16 +80,14 @@ public class SearchActivity extends AppCompatActivity {
         btn_noise_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_noise_a.isSelected()) {
+                if (btn_noise_a.isSelected()) {
                     btn_noise_a.setSelected(false);
                     applyed_noise = 0;
                     applyOption = false;
-                }
-                else{
-                    if(btn_noise_b.isSelected()) {
+                } else {
+                    if (btn_noise_b.isSelected()) {
                         btn_keyboard_b.setSelected(false);
-                    }
-                    else if(btn_keyboard_c.isSelected()) {
+                    } else if (btn_keyboard_c.isSelected()) {
                         btn_keyboard_c.setSelected(false);
                     }
                     btn_noise_a.setSelected(true);
@@ -103,16 +102,14 @@ public class SearchActivity extends AppCompatActivity {
         btn_noise_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_noise_b.isSelected()) {
+                if (btn_noise_b.isSelected()) {
                     btn_noise_b.setSelected(false);
                     applyed_noise = 0;
                     applyOption = false;
-                }
-                else{
-                    if(btn_noise_a.isSelected()) {
+                } else {
+                    if (btn_noise_a.isSelected()) {
                         btn_keyboard_a.setSelected(false);
-                    }
-                    else if(btn_keyboard_c.isSelected()) {
+                    } else if (btn_keyboard_c.isSelected()) {
                         btn_keyboard_c.setSelected(false);
                     }
                     btn_noise_b.setSelected(true);
@@ -127,16 +124,14 @@ public class SearchActivity extends AppCompatActivity {
         btn_noise_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_noise_c.isSelected()) {
+                if (btn_noise_c.isSelected()) {
                     btn_noise_c.setSelected(false);
-                    applyed_noise = 0 ;
+                    applyed_noise = 0;
                     applyOption = false;
-                }
-                else{
-                    if(btn_noise_a.isSelected()) {
+                } else {
+                    if (btn_noise_a.isSelected()) {
                         btn_keyboard_a.setSelected(false);
-                    }
-                    else if(btn_keyboard_b.isSelected()) {
+                    } else if (btn_keyboard_b.isSelected()) {
                         btn_keyboard_b.setSelected(false);
                     }
                     btn_noise_c.setSelected(true);
@@ -151,17 +146,15 @@ public class SearchActivity extends AppCompatActivity {
         btn_mic_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_mic_a.isSelected()) {
+                if (btn_mic_a.isSelected()) {
                     btn_mic_a.setSelected(false);
                     applyed_mic = false;
                     applyOption = false;
-                }
-                else{
-                    if(btn_mic_b.isSelected()){
+                } else {
+                    if (btn_mic_b.isSelected()) {
                         btn_mic_b.setSelected(false);
                         applyed_mic_check = false;
-                    }
-                    else if(btn_mic_c.isSelected()){
+                    } else if (btn_mic_c.isSelected()) {
                         btn_mic_c.setSelected(false);
                     }
                     applyed_mic = true;
@@ -174,17 +167,15 @@ public class SearchActivity extends AppCompatActivity {
         btn_mic_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_mic_b.isSelected()) {
+                if (btn_mic_b.isSelected()) {
                     btn_mic_b.setSelected(false);
                     applyed_mic_check = false;
                     applyed_mic = false;
                     applyOption = false;
-                }
-                else{
-                    if(btn_mic_a.isSelected()){
+                } else {
+                    if (btn_mic_a.isSelected()) {
                         btn_mic_a.setSelected(false);
-                    }
-                    else if(btn_mic_c.isSelected()){
+                    } else if (btn_mic_c.isSelected()) {
                         btn_mic_c.setSelected(false);
                     }
                     applyed_mic = false;
@@ -198,16 +189,14 @@ public class SearchActivity extends AppCompatActivity {
         btn_mic_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_mic_c.isSelected()) {
+                if (btn_mic_c.isSelected()) {
                     btn_mic_c.setSelected(false);
                     applyed_mic = false;
                     applyOption = false;
-                }
-                else{
-                    if(btn_mic_a.isSelected()){
+                } else {
+                    if (btn_mic_a.isSelected()) {
                         btn_mic_a.setSelected(false);
-                    }
-                    else if(btn_mic_b.isSelected()){
+                    } else if (btn_mic_b.isSelected()) {
                         btn_mic_b.setSelected(false);
                     }
                     applyed_mic = true;
@@ -222,17 +211,15 @@ public class SearchActivity extends AppCompatActivity {
         btn_keyboard_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_keyboard_a.isSelected()) {
+                if (btn_keyboard_a.isSelected()) {
                     btn_keyboard_a.setSelected(false);
                     applyed_keyboard = false;
                     applyOption = false;
-                }
-                else{
-                    if(btn_keyboard_b.isSelected()){
+                } else {
+                    if (btn_keyboard_b.isSelected()) {
                         btn_keyboard_b.setSelected(false);
                         applyed_keyboard_check = false;
-                    }
-                    else if(btn_keyboard_c.isSelected()){
+                    } else if (btn_keyboard_c.isSelected()) {
                         btn_keyboard_c.setSelected(false);
                     }
                     applyed_keyboard = true;
@@ -245,17 +232,15 @@ public class SearchActivity extends AppCompatActivity {
         btn_keyboard_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_keyboard_b.isSelected()) {
+                if (btn_keyboard_b.isSelected()) {
                     btn_keyboard_b.setSelected(false);
                     applyed_keyboard_check = false;
                     applyed_keyboard = false;
                     applyOption = false;
-                }
-                else{
-                    if(btn_keyboard_a.isSelected()){
+                } else {
+                    if (btn_keyboard_a.isSelected()) {
                         btn_keyboard_a.setSelected(false);
-                    }
-                    else if(btn_keyboard_c.isSelected()){
+                    } else if (btn_keyboard_c.isSelected()) {
                         btn_keyboard_c.setSelected(false);
                     }
 
@@ -270,15 +255,13 @@ public class SearchActivity extends AppCompatActivity {
         btn_keyboard_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_keyboard_c.isSelected()) {
+                if (btn_keyboard_c.isSelected()) {
                     btn_keyboard_a.setSelected(false);
                     applyed_keyboard = false;
-                }
-                else{
-                    if(btn_keyboard_a.isSelected()){
+                } else {
+                    if (btn_keyboard_a.isSelected()) {
                         btn_keyboard_a.setSelected(false);
-                    }
-                    else if(btn_keyboard_b.isSelected()){
+                    } else if (btn_keyboard_b.isSelected()) {
                         btn_keyboard_b.setSelected(false);
                     }
                     applyed_keyboard = true;
@@ -292,48 +275,54 @@ public class SearchActivity extends AppCompatActivity {
         btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(applyed_noise != 0)
-                    Log.d("test","선택된 노이즈 정도 : " + applyed_noise);
-                else
-                    Log.d("test","선택된 노이즈 정도 : " + 0);
+                if (((btn_noise_a.isSelected() || btn_noise_b.isSelected()) || (btn_noise_b.isSelected() || btn_noise_c.isSelected()))
+                        && ((btn_keyboard_a.isSelected() || btn_keyboard_b.isSelected()) || (btn_keyboard_b.isSelected() || btn_keyboard_c.isSelected()))
+                        && ((btn_mic_a.isSelected() || btn_mic_b.isSelected()) || (btn_mic_b.isSelected() || btn_mic_c.isSelected()))) {
+                    if (applyed_noise != 0)
+                        Log.d("test", "선택된 노이즈 정도 : " + applyed_noise);
+                    else
+                        Log.d("test", "선택된 노이즈 정도 : " + 0);
 
-                Log.d("test", "마이크 유무 : " + applyed_mic + " 키보드 유무 : "+ applyed_keyboard);
-                Log.d("test", "마이크 상관없음 : " + applyed_mic_check + " 키보드 상관없음 : "+ applyed_keyboard_check);
+                    Log.d("test", "마이크 유무 : " + applyed_mic + " 키보드 유무 : " + applyed_keyboard);
+                    Log.d("test", "마이크 상관없음 : " + applyed_mic_check + " 키보드 상관없음 : " + applyed_keyboard_check);
 
-                Intent intent = new Intent(getApplicationContext(), SeatActivity.class);
-                intent.putExtra("noise_level", applyed_noise);
-                intent.putExtra("mic_TF", applyed_mic);
-                intent.putExtra("mic_TF_check", applyed_mic_check);
-                intent.putExtra("keyboard_TF", applyed_keyboard);
-                intent.putExtra("keyboard_TF_check", applyed_keyboard_check);
-                intent.putExtra("applyedOption", applyOption);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), SeatActivity.class);
+                    intent.putExtra("noise_level", applyed_noise);
+                    intent.putExtra("mic_TF", applyed_mic);
+                    intent.putExtra("mic_TF_check", applyed_mic_check);
+                    intent.putExtra("keyboard_TF", applyed_keyboard);
+                    intent.putExtra("keyboard_TF_check", applyed_keyboard_check);
+                    intent.putExtra("applyedOption", applyOption);
+                    startActivity(intent);
+                } else
+                    Toast.makeText(getApplicationContext(), "검색 조건을 모두 선택해주세요.", Toast.LENGTH_SHORT).show();
             }
 
         });
+
         btn_initial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(btn_noise_a.isSelected())
+                if (btn_noise_a.isSelected())
                     btn_noise_a.setSelected(false);
-                if(btn_noise_b.isSelected())
+                if (btn_noise_b.isSelected())
                     btn_noise_b.setSelected(false);
-                if(btn_noise_c.isSelected())
+                if (btn_noise_c.isSelected())
                     btn_noise_c.setSelected(false);
 
 
-                if(btn_mic_a.isSelected())
+                if (btn_mic_a.isSelected())
                     btn_mic_a.setSelected(false);
-                if(btn_mic_b.isSelected())
+                if (btn_mic_b.isSelected())
                     btn_mic_b.setSelected(false);
-                if(btn_mic_c.isSelected())
+                if (btn_mic_c.isSelected())
                     btn_mic_c.setSelected(false);
 
-                if(btn_keyboard_a.isSelected())
+                if (btn_keyboard_a.isSelected())
                     btn_keyboard_a.setSelected(false);
-                if(btn_keyboard_b.isSelected())
+                if (btn_keyboard_b.isSelected())
                     btn_keyboard_b.setSelected(false);
-                if(btn_keyboard_c.isSelected())
+                if (btn_keyboard_c.isSelected())
                     btn_keyboard_c.setSelected(false);
 
                 applyed_noise = 0;
@@ -384,14 +373,14 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if(savedInstanceState==null) {
+        if (savedInstanceState == null) {
             Log.d("bundle in onRestoreInst", "it's null");
         } else {
             applyed_keyboard = savedInstanceState.getBoolean(APPLYED_OPTION);
             applyed_mic = savedInstanceState.getBoolean(APPLYED_MIC);
             applyOption = savedInstanceState.getBoolean(APPLYED_OPTION);
             applyed_noise = savedInstanceState.getInt(APPLYED_NOISE);
-            applyed_keyboard_check =savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
+            applyed_keyboard_check = savedInstanceState.getBoolean(APPLYED_KEYBOARD_CHECK);
             applyed_mic_check = savedInstanceState.getBoolean(APPLYED_MIC_CHECK);
             Log.d("bundel in onRestoreInst", "not null. data from prev");
         }

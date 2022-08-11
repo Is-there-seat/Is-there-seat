@@ -44,11 +44,11 @@ public class SeatActivity extends AppCompatActivity {
 
         // 가장 먼저 띄워줄 프래그먼트 설정
         Bundle bundle = new Bundle();
-        bundle.putInt("noise_level", getIntent().getIntExtra("noise_level",0));
-        bundle.putBoolean("mic_TF", getIntent().getBooleanExtra("mic_TF",false));
-        bundle.putBoolean("mic_TF_check", getIntent().getBooleanExtra("mic_TF_check",false));
-        bundle.putBoolean("keyboard_TF", getIntent().getBooleanExtra("keyboard_TF",false));
-        bundle.putBoolean("keyboard_TF_check", getIntent().getBooleanExtra("keyboard_TF_check",false));
+        bundle.putInt("noise_level", getIntent().getIntExtra("noise_level", 0));
+        bundle.putBoolean("mic_TF", getIntent().getBooleanExtra("mic_TF", false));
+        bundle.putBoolean("mic_TF_check", getIntent().getBooleanExtra("mic_TF_check", false));
+        bundle.putBoolean("keyboard_TF", getIntent().getBooleanExtra("keyboard_TF", false));
+        bundle.putBoolean("keyboard_TF_check", getIntent().getBooleanExtra("keyboard_TF_check", false));
         bundle.putBoolean("applyedOption", getIntent().getBooleanExtra("applyedOption", false));
 
         sungshin3F.setArguments(bundle);
@@ -67,7 +67,7 @@ public class SeatActivity extends AppCompatActivity {
 
         iv_search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent intent = new Intent(SeatActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
@@ -77,7 +77,7 @@ public class SeatActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_view);
         navigationView.bringToFront();
-        tv_title = (TextView)findViewById(R.id.tv_title);
+        tv_title = (TextView) findViewById(R.id.tv_title);
 
         //좌석 현황 보여주는 프래그먼트로 전환
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -85,7 +85,7 @@ public class SeatActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.item_sujeong:
                         tv_title.setText("수정관 1층");
                         transaction.replace(R.id.fragment, sujungFragment).commit();
@@ -123,10 +123,9 @@ public class SeatActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else{
+        } else {
             super.onBackPressed();
         }
     }

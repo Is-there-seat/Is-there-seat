@@ -62,7 +62,7 @@
                     android:id="@+id/goStatus_btn"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:background="@color/white"
+                    android:background="@drawable/layout_square_blue"
                     android:scaleType="fitCenter"
                     android:src="@drawable/seat_img" />
 
@@ -91,7 +91,10 @@
                 android:layout_height="160dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/layout_square_blue" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_search_24"
+                android:background="@drawable/layout_square_blue"
+                app:tint="#484B91" />
 
             <TextView
                 android:layout_width="wrap_content"
