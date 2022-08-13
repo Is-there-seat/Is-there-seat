@@ -32,59 +32,20 @@ import java.util.TimerTask;
 public class sungshin3F extends Fragment {
 
     // 마이크 키보드 사용 가능
-    double decibels[] = {36.69, 36.75, 35.73, 38.12, 46.03, 46.87, 42.75, 43.25, 44.17, 41.26};
-    double decibel;
-    TextView time;
-    TextView deci_view;
-    ArrayList<View> seats = new ArrayList<>();
-    MainActivity mainActivity;
-
     // 실시간 시간 출력에 필요한 코드
-    private Timer mtimer;
-    private Handler mHandler = new Handler();
-
-    private Runnable timeTaskThread = new Runnable() {
-        @Override
-        public void run() {
-            Date now = new Date();
-            SimpleDateFormat format = new SimpleDateFormat("kk");
-            String dateString = format.format(now);
-            time.setText(dateString);
-            int hour = Integer.parseInt(dateString);
-            int index = hour - 9;
-            if (index <= 0) {
-                deci_view.setText("-"); // 9 시 이전의 경우
-            } else if ((1 <= index) && (index < 10)) {
-                decibel = decibels[index]; // 10시부터 18시 까지
-                deci_view.setText(Double.toString(decibel));
-            } else
-                deci_view.setText("-");// 18시 이후
-        }
-    };
-
-    class timeTask extends TimerTask {
-        @Override
-        public void run() {
-            mHandler.post(timeTaskThread);
-        }
-    }
 
     @Override
     public void onDestroy() {
-        mtimer.cancel();
         super.onDestroy();
     }
 
     @Override
     public void onPause() {
-        mtimer.cancel();
         super.onPause();
     }
 
     @Override
     public void onResume() {
-        TimerTask timerTask = new timeTask();
-        mtimer.schedule(timerTask, 500, 3000);
         super.onResume();
     }
 
@@ -230,15 +191,6 @@ public class sungshin3F extends Fragment {
             }
 
         });
-
-
-        time = (TextView) v.findViewById(R.id.hour);
-        deci_view = (TextView) v.findViewById(R.id.decibel_in_sungshin3F);
-        // 실시간 시간 출력
-        timeTask timeTask = new timeTask();
-        mtimer = new Timer();
-        mtimer.schedule(timeTask, 500, 1000);
-
 
         return v;
     }

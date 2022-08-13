@@ -35,61 +35,20 @@ import java.util.TimerTask;
 public class CrystalLoungeFragment extends Fragment {
 
     // 마이크, 키보드 사용 불가능
-    ArrayList<Double> decibels = new ArrayList<>(Arrays.asList(35.3, 35.0, 34.1, 35.2, 32.4, 31.9, 33.2, 34.2, 35.2, 33.7));
-    double decibel;
-    TextView time;
-    TextView deci_view;
     ArrayList<View> seats = new ArrayList<>();
-
-    // 실시간 시간 출력에 필요한 코드
-    private Timer mtimer;
-    private final Handler mHandler = new Handler();
-
-
-    private final Runnable timeTaskThread = new Runnable() {
-        @Override
-        public void run() {
-            SimpleDateFormat format = new SimpleDateFormat("kk");
-            String dateString = format.format(new Date());
-            time.setText(dateString);
-
-            int hour = Integer.parseInt(dateString);
-            int index = hour - 9;
-            if (index <= 0) {
-                deci_view.setText("-");
-                // 9 시 이전의 경우
-            } else if (index < 10) {
-                decibel = decibels.get(index); // 10시부터 18시 까지
-                deci_view.setText(Double.toString(decibel));
-            } else
-                deci_view.setText("-");
-            // 18시 이후
-        }
-    };
-
-    class timeTask extends TimerTask {
-        @Override
-        public void run() {
-            mHandler.post(timeTaskThread);
-        }
-    }
 
     @Override
     public void onDestroy() {
-        mtimer.cancel();
         super.onDestroy();
     }
 
     @Override
     public void onPause() {
-        mtimer.cancel();
         super.onPause();
     }
 
     @Override
     public void onResume() {
-        TimerTask timerTask = new CrystalLoungeFragment.timeTask();
-        mtimer.schedule(timerTask, 500, 3000);
         super.onResume();
     }
 
@@ -243,15 +202,6 @@ public class CrystalLoungeFragment extends Fragment {
         for (int i = 0; i < seats.size(); i++) {
             seats.set(i, (View) v.findViewById(ids[i]));
         }
-
-
-        time = (TextView) v.findViewById(R.id.hour);
-        deci_view = (TextView) v.findViewById(R.id.decibel_in_crystalLounge);
-
-        // 실시간 시간 출력
-        CrystalLoungeFragment.timeTask timeTask = new CrystalLoungeFragment.timeTask();
-        mtimer = new Timer();
-        mtimer.schedule(timeTask, 500, 1000);
 
         return v;
 

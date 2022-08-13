@@ -7,39 +7,7 @@
     android:orientation="vertical"
     tools:context=".SujungFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/hour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="Time" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="시 평균 데시벨 : " />
-
-        <TextView
-            android:id="@+id/decibel_in_sujung1F"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/paybooc_medium"
-            android:text="Number" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/paybooc_medium"
-            android:text=" db" />
-
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
