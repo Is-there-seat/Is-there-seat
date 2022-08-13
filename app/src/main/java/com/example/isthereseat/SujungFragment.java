@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+// -1:사용가능 0:사용중 1:(20분 대기) -2:사용불가
 public class SujungFragment extends Fragment {
 
     // 마이크 키보드 사용 가능
@@ -124,7 +124,7 @@ public class SujungFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("sujung");
 
-
+        // 데이터를 처음 한번만 가져오는 코드
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                                  @Override
                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -155,9 +155,13 @@ public class SujungFragment extends Fragment {
                                                          } else if (seat_status.get(i) == 0) {
                                                              // 사용 중
                                                              v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_using));
-                                                         } else {
+                                                         } else if (seat_status.get(i) == 1){
                                                              // 20
                                                              v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_check));
+                                                         }
+                                                         else {
+                                                             // 사용불가
+                                                             v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_unavailable));
                                                          }
                                                      }
                                                  }
@@ -169,6 +173,8 @@ public class SujungFragment extends Fragment {
                                              }
         );
 
+
+        // 데이터에 변화가 생길때마다 읽어오는 코드
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -203,10 +209,13 @@ public class SujungFragment extends Fragment {
                     // 사용 중
                     v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_using));
                     Log.d("color test", "color test2");
-                } else {
+                } else if (value == 1){
                     // 20
                     v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_check));
                     Log.d("color test", "color test3");
+                } else {
+                    // 사용불가
+                    v.findViewById(id).setBackgroundColor(Color.parseColor("#654A97"));
                 }
                 String idString = getResources().getString(id);
                 Log.d("color", "id 값은 ? " + idString);

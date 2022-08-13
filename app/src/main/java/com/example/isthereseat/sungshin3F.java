@@ -28,10 +28,10 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+// -1:사용가능 0:사용중 1:(20분 대기) -2:사용불가
 public class sungshin3F extends Fragment {
 
     // 마이크 키보드 사용 가능
-
     double decibels[] = {36.69, 36.75, 35.73, 38.12, 46.03, 46.87, 42.75, 43.25, 44.17, 41.26};
     double decibel;
     TextView time;
@@ -112,13 +112,12 @@ public class sungshin3F extends Fragment {
                 R.id.seat4_1, R.id.seat4_2, R.id.seat4_3, R.id.seat4_4, R.id.seat4_5, R.id.seat4_6, R.id.seat4_7, R.id.seat4_8, R.id.seat4_9, R.id.seat4_10, R.id.seat4_11, R.id.seat4_12,
         };
 
-        int seat_size = ids.length;
         ArrayList<Integer> seat_status = new ArrayList<Integer>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("sungshin");
 
-
+        // 데이터를 처음 한번만 가져오는 코드
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                                  @Override
                                                  public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -149,9 +148,13 @@ public class sungshin3F extends Fragment {
                                                          } else if (seat_status.get(i) == 0) {
                                                              // 사용 중
                                                              v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_using));
-                                                         } else {
+                                                         } else if (seat_status.get(i) == 1) {
                                                              // 20
                                                              v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_check));
+                                                         }
+                                                         else {
+                                                             v.findViewById(ids[i]).setBackground(getResources().getDrawable(R.drawable.seat_unavailable));
+
                                                          }
                                                      }
                                                  }
@@ -164,6 +167,7 @@ public class sungshin3F extends Fragment {
         );
 
 
+        // 데이터에 변화가 생길때마다 읽어오는 코드
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -198,10 +202,13 @@ public class sungshin3F extends Fragment {
                     // 사용 중
                     v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_using));
                     Log.d("color test", "color test2");
-                } else {
+                } else if (value == 1 ){
                     // 20
                     v.findViewById(id).setBackground(getResources().getDrawable(R.drawable.seat_check));
                     Log.d("color test", "color test3");
+                } else {
+                    // 사용불가
+                    v.findViewById(id).setBackgroundColor(Color.parseColor("#654A97"));
                 }
                 String idString = getResources().getString(id);
                 Log.d("color", "id 값은 ? " + idString);
