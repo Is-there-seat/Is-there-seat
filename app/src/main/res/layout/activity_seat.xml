@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:text="* 사용 가능 좌석은 5분 뒤에 사용 중으로 표시됩니다."
+                android:text="* 노란색 좌석은 일정 시간 대기 후에 사용 가능으로 표시됩니다."
                 android:textStyle="bold"
                 android:fontFamily="@font/paybooc_medium"
                 android:textColor="#E11414"
@@ -223,7 +223,7 @@
                         android:layout_marginStart="7dp"
                         android:gravity="center_vertical"
                         android:fontFamily="@font/paybooc_medium"
-                        android:text="20분 대기 후 사용 가능" />
+                        android:text="확인 필요석" />
                 </LinearLayout>
 
             </LinearLayout>
