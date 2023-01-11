@@ -13,30 +13,31 @@
 ## 개발 과정 ## 
 저희 작품의 결과물은 라즈베리파이의 압력센서가 들어 있는 방석과 어플 두 가지 입니다. 
 ### 라즈베리 파이 ### 
-<p align="center">![2](https://user-images.githubusercontent.com/77314069/211737744-544cf1c3-505d-4504-a241-95e0edee92d7.jpg)
+<p align="center"><img width="419" alt="스크린샷 2023-01-11 오후 3 55 49" src="https://user-images.githubusercontent.com/77314069/211737744-544cf1c3-505d-4504-a241-95e0edee92d7.jpg">
 </p>우선, 라즈베리파이에 fsr(압력센서)를 연결하였고, 방석 안에 설치된 압려 센서로부터 받은 압력데이터로 값을 정합니다. 이때 fsr 센서는 아날로그 센서이기 때문에 mcp3008 adaptor를 사용하여 아날로그 신호를 디지털 신호로 바꿔주었고, fsr센서가 압력에 따라 흐르는 전류가 변화하기 때문에 데이터 시트를 참고하여 여러 저항 값을 넣어보고 가장 의미 있는 데이터를 내보내는 저항을 사용하였습니다. 
 센서의 입력 값을 받아 가공하는 코드는 파이썬으로 작성하였습니다. 데이터 값은 기준을 통해 의미 있는 데이터로 가공되는데 '사용 중', '사용 가능', '20분 대기' 총 세가지 상태로 분류됩니다. 데이터 값은 가공한 값을 기준으로 780을 넘으면, '누가 앉았음' 값으로, 그 아래가 되면 '누가 앉지 않음' 값으로 인식합니다.  
 <p align="center"><img width="496" alt="스크린샷 2023-01-11 오후 3 51 36" src="https://user-images.githubusercontent.com/77314069/211737556-ef33c3b4-5da9-41e8-a698-6619ce4f8782.png"></p>
 해당 기준(가공 데이터 값 780)은 직접 여러 번 테스트를 거쳐 직접 수집한 데이터를 반영하여 정한 기준으로 다양한 몸무게와 상황을 고려하였습니다. 해당 상태들을 라즈베리파이에서 firebase 데이터베이스로 전송합니다.
-<p align="center">![그림1](https://user-images.githubusercontent.com/77314069/211737787-1e061cc6-25b6-4504-b870-1ae8d77d1562.jpg)</p>
+<p align="center"><img width="628" alt="스크린샷 2023-01-11 오후 4 09 23" src="https://user-images.githubusercontent.com/77314069/211740564-62fd2022-8c95-47d3-9b33-055db3eca250.png"></p>
+
 이때 학생이 짐만 두고 잠시 자리를 비운 경우를 고려하기 위해 '사용 중 상태'에서 '사용 가능 상태'로 넘어가기 전, 20분간 계속해서 '누가 앉지 않음'(780미만 값) 값이 지속되는지 확인하는 카운팅 과정(확인중 상태)을 거칩니다. 이때는 '확인 중' 상태 입니다. 
 추가로, 저희는 학생들이 잠시 앉았다가 바로 떠나는 경우를 고려해야한다고 생각했습니다. 학생들이 잠시 앉았다 떠났을 때의 값 까지 20분 카운트(확인 중 상태)를 한다면, 이것은 시간 낭비라고 판단하였습니다. 그래서 만약에 학생이 3분 미만으로 앉았다가 떠나는 경우에는 20분 카운트(확인중 상태)로 넘어가지 않고 바로 ‘사용가능 상태’로 바뀝니다. 학생이 3분이상 앉은 경우에는 학생이 이 좌석에서 앞으로 오래 앉아있을 것이라고 판단하여 이후 떠날 경우에는 20분 카운트(확인중 상태)로 넘어갑니다. 
 
 ### 어플리케이션 ### 
-<p align="center">![ㅇㅇ](https://user-images.githubusercontent.com/77314069/211737989-d490ed72-8239-4c27-bacf-ebcead4d724c.jpg)
-![ㄹㄹ](https://user-images.githubusercontent.com/77314069/211737999-3395790a-1206-435a-8d22-6b545aa0ca9f.jpg)</p>
+<p align="center"><img width="205" alt="스크린샷 2023-01-11 오후 4 08 43" src="https://user-images.githubusercontent.com/77314069/211740370-aac8784e-bcf9-41c9-afe5-48f8ff5368f0.png"><img width="200" alt="스크린샷 2023-01-11 오후 3 51 36" src="https://user-images.githubusercontent.com/77314069/211737999-3395790a-1206-435a-8d22-6b545aa0ca9f.jpg"></p>
 firebase 데이터베이스를 연결한 애플리케이션에서 firebase를 통해 실시간(realtime)으로 좌석 상태를 확인할 수 있습니다. 사용자는 옵션을 선택하여 좌석을 추천 받을 수 있는데, 사용자에게  소음 정도, 마이크 사용 가능여부, 키보드 사용 가능여부 총 세가지 옵션이  제공됩니다. 
-![ㅎㅎㅎㅎ](https://user-images.githubusercontent.com/77314069/211738150-23458e30-d138-42bd-9c08-d34598dca922.jpg)
+<p align="center"><img width="200" alt="스크린샷 2023-01-11 오후 3 51 36" src="https://user-images.githubusercontent.com/77314069/211738150-23458e30-d138-42bd-9c08-d34598dca922.jpg"></p>
 소음정도의 경우, 학기 중 팀원들이 저희가 택한 세가지 장소에서 학생들이 가장 많은 시간인 9시부터 6시까지 직접 데시벨을 체크하여 세가지로 나누었고, 마이크와 키보드 사용가능 여부는 학교에서 제공하는 마이크,키보드 사용 가능 공지를 반영하였습니다.
-<p align="center"><img width="419" alt="스크린샷 2023-01-11 오후 3 55 49" src="https://user-images.githubusercontent.com/77314069/211738251-80dc267f-a542-4db2-ae92-c78c39c38d8b.png"></p>
+<p align="center"><img width="400" alt="스크린샷 2023-01-11 오후 3 55 49" src="https://user-images.githubusercontent.com/77314069/211738251-80dc267f-a542-4db2-ae92-c78c39c38d8b.png"></p>
 
 사용자는 해당 옵션 선택 후 옵션에 맞는 좌석 중 사용가능한 좌석을 추천받습니다. 
 사용자가 선택한 옵션 중 사용가능한 좌석은 추천좌석으로, 사용자가 선택한 옵션에 해당하지 않지만 사용가능한 좌석은 사용가능 좌석으로 표시됩니다.
+<p align="center"><img width="200" alt="스크린샷 2023-01-11 오후 3 55 49" src="https://user-images.githubusercontent.com/77314069/211738484-dc02fa0c-b94b-49f7-96f8-9df061a4e465.jpg"><img width="200" alt="스크린샷 2023-01-11 오후 4 07 34" src="https://user-images.githubusercontent.com/77314069/211740225-826f690d-d487-4276-861b-3b5224d8edf5.png">
 
-<p align="center">![ㄹ](https://user-images.githubusercontent.com/77314069/211738484-dc02fa0c-b94b-49f7-96f8-9df061a4e465.jpg)
-![3](https://user-images.githubusercontent.com/77314069/211738493-64a5bc43-ecf3-4f09-ab4d-f895a5293b33.jpg)</p>
+</p>
 사용자는 애플리케이션을 확인하여 자리를 찾을 수 있습니다. 
-<p align="center">![image](https://user-images.githubusercontent.com/77314069/211738542-f02901da-1e5f-48d7-b9b2-57bc3fd7fee6.png)</p>
+
+
 
 
 
